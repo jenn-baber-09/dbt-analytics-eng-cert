@@ -1,0 +1,28 @@
+name: "dbt_analytics_eng_cert"
+
+config-version: 2
+version: "1.0.0"
+
+profile: "default"
+
+# Where dbt looks for different resource types
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Where compiled artifacts are written
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Default model behavior
+
+models:
+  dbt_analytics_eng_cert:
+    +materialized: view

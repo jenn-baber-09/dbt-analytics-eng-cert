@@ -1,0 +1,77 @@
+==================== 2026-01-31T03:59:42.594018Z | 019c1234-e5ff-7bd0-81b6-4f7ab59574c4 ====================
+==================== 2026-01-31T03:59:57.327530Z | 019c1235-1f8e-7fd1-9d71-75389d346771 ====================
+03:59:57.327619 [info ]: Installing dbt project and profile setup
+03:59:57.332296 [info ]: Warning A dbt_project.yml already exists in this directory; skipping sample project creation.
+03:59:57.333315 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+03:59:57.333660 [info ]: Info Setting up your profile...
+03:59:57.333903 [info ]: Info Creating new profile...
+04:00:02.058205 [info ]: Found dbt_cloud.yml configuration
+04:00:09.471234 [warn ]: dbt1000: No project found with active project ID: 
+04:00:09.471348 [warn ]: dbt1001: Failed to fetch cloud config: No active cloud project configuration found
+04:00:09.471368 [info ]: No cloud config found for this adapter/project
+==================== 2026-01-31T04:01:52.108143Z | 019c1236-dfe9-7752-adb1-4e3165c598e7 ====================
+==================== 2026-01-31T04:01:55.326697Z | 019c1236-ec7d-7371-aaf6-ea099fbca644 ====================
+04:01:55.326769 [info ]: Installing dbt project and profile setup
+04:01:55.330655 [info ]: Warning A dbt_project.yml already exists in this directory; skipping sample project creation.
+04:01:55.331312 [info ]: Info dbt extension already recommended in .vscode/extensions.json, skipping
+04:01:55.331618 [info ]: Info Setting up your profile...
+04:01:55.331957 [info ]: Info Creating new profile...
+04:01:56.542593 [info ]: Found dbt_cloud.yml configuration
+04:02:00.543989 [warn ]: dbt1000: No project found with active project ID: 
+04:02:00.544046 [warn ]: dbt1001: Failed to fetch cloud config: No active cloud project configuration found
+04:02:00.544057 [info ]: No cloud config found for this adapter/project
+04:02:44.313412 [info ]: Success Profile written to C:\Users\jenni\.dbt\profiles.yml
+04:02:44.313633 [info ]: Validating profile inputs, adapters, and connection
+
+04:02:44.313766 [info ]: dbt-fusion 2.0.0-preview.104
+04:02:44.314169 [info ]: Started loading project
+04:02:44.315328 [info ]: Loading ~/.dbt/profiles.yml
+04:02:44.316324 [info ]: Finished loading project [  0.00s]
+04:02:44.316589 [info ]: Started debugging
+04:02:44.316690 [info ]: Debugging profile: dev
+04:02:44.316976 [info ]: Debugging dbt version: 2.0.0-preview.104
+04:02:44.317324 [info ]: Debugging platform: windows x86_64 (windows)
+04:02:44.317681 [info ]: Debugging adapter type: snowflake (remote)
+04:02:44.344460 [info ]: Debugging dependencies:
+  git: OK
+04:02:44.345046 [info ]: Debugging connection:
+  "account": "xx72838.us-east-2.aws",
+  "user": "jennbaber09",
+  "database": "dbt_analytics_eng_crt",
+  "warehouse": "compute_wh",
+  "schema": "public"
+04:02:45.770395 [info ]: Finished debugging [  1.45s]
+04:02:45.770830 [error]: dbt1011: [Snowflake] 390100 (08004): Incorrect username or password was specified.
+04:02:45.882403 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' with 2 warnings and 1 error for target 'dev' [50.6s]
+04:02:45.937289 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [53.8s]
+==================== 2026-01-31T04:03:43.092616Z | 019c1238-9172-78c3-853e-2ea54db2cc80 ====================
+==================== 2026-01-31T04:03:48.095546Z | 019c1238-a4fd-7051-bb45-144d49d83ce0 ====================
+04:03:48.095629 [info ]: dbt-fusion 2.0.0-preview.104
+04:03:48.095921 [info ]: Started loading project
+04:03:48.099815 [info ]: Loading ~/.dbt/profiles.yml
+04:03:48.100708 [info ]: Finished loading project [  0.00s]
+04:03:48.100922 [info ]: Started debugging
+04:03:48.101012 [info ]: Debugging profile: dev
+04:03:48.101125 [info ]: Debugging dbt version: 2.0.0-preview.104
+04:03:48.101429 [info ]: Debugging platform: windows x86_64 (windows)
+04:03:48.101617 [info ]: Debugging adapter type: snowflake (remote)
+04:03:48.130442 [info ]: Debugging dependencies:
+  git: OK
+04:03:48.130723 [info ]: Debugging connection:
+  "account": "xx72838.us-east-2.aws",
+  "user": "jennbaber09",
+  "database": "dbt_analytics_eng_crt",
+  "warehouse": "compute_wh",
+  "schema": "public"
+04:03:48.622138 [info ]: Finished debugging [  0.52s]
+04:03:48.622552 [error]: dbt1011: [Snowflake] 390100 (08004): Incorrect username or password was specified.
+04:03:48.770175 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' with 1 error for target 'dev' [674ms]
+04:03:48.830839 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [5.7s]
