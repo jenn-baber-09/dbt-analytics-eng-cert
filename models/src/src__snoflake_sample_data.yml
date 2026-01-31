@@ -1,0 +1,48 @@
+sources:
+  - name: snowflake_sample_data
+    database: snowflake_sample_data
+    schema: TPCDS_SF100TCL
+    config:
+      enabled: true
+
+    tables:
+      - name: catalog_sales 
+        config:
+          enabled: true
+
+      - name: catalog_returns 
+        config:
+          enabled: true
+
+      - name: customer_address
+        config:
+          enabled: true
+
+      - name: customers
+        config:
+          enabled: true
+
+      - name: date_dim
+        config:
+          enabled: true
+
+      - name: store_sales 
+        config:
+          enabled: true
+
+      - name: store_returns 
+        config:
+          enabled: true
+
+      - name: time_dim
+        config:
+          enabled: true
+
+      - name: web_sales 
+        config:
+          enabled: true
+
+      - name: web_returns 
+        config:
+          enabled: true
+      
