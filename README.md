@@ -149,8 +149,6 @@ As study progresses, this repo will gradually include:
 * Notes embedded directly alongside code
 * Diagrams where concepts benefit from visualization
 
-[Study Task Progress can be monitored in Notion.](https://www.notion.so/dbt-Analytics-Engineer-Certification-2f08a72528aa8032b59fcb804ba04879?source=copy_link)
-
 ---
 
 ## 🔖 Reference
@@ -161,4 +159,4 @@ All topics and links are sourced directly from the **official dbt documentation*
 
 ## 🚧 Status
 
-**Early study phase** — structure first, implementation to follow.
+[Study Task Progress can be monitored in Notion.](https://www.notion.so/dbt-Analytics-Engineer-Certification-2f08a72528aa8032b59fcb804ba04879?source=copy_link)
