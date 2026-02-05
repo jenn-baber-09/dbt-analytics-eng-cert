@@ -35,4 +35,5 @@ models:
       # +on_schema_change: append_new_columns 
       # +partition_by:
         # - dbt_updated_at
-        # - dbt_created_at
+      # +exclude: 
+        # - dbt_synced_at
