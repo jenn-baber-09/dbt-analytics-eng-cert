@@ -1,48 +1,1382 @@
+version: 2
+
 sources:
   - name: snowflake_sample_data
     database: snowflake_sample_data
-    schema: TPCDS_SF100TCL
+    schema: tpcds_sf100tcl
+    description: |
+      Sample data provided by Snowflake when creating test account to use in dbt study
     config:
       enabled: true
-
+      
     tables:
-      - name: catalog_sales 
-        config:
-          enabled: true
+      - name: call_center
+        description: ""
+        columns:
+          - name: cc_call_center_sk
+            data_type: number
+            description: ""
+          - name: cc_call_center_id
+            data_type: varchar
+            description: ""
+          - name: cc_rec_start_date
+            data_type: date
+            description: ""
+          - name: cc_rec_end_date
+            data_type: date
+            description: ""
+          - name: cc_closed_date_sk
+            data_type: number
+            description: ""
+          - name: cc_open_date_sk
+            data_type: number
+            description: ""
+          - name: cc_name
+            data_type: varchar
+            description: ""
+          - name: cc_class
+            data_type: varchar
+            description: ""
+          - name: cc_employees
+            data_type: number
+            description: ""
+          - name: cc_sq_ft
+            data_type: number
+            description: ""
+          - name: cc_hours
+            data_type: varchar
+            description: ""
+          - name: cc_manager
+            data_type: varchar
+            description: ""
+          - name: cc_mkt_id
+            data_type: number
+            description: ""
+          - name: cc_mkt_class
+            data_type: varchar
+            description: ""
+          - name: cc_mkt_desc
+            data_type: varchar
+            description: ""
+          - name: cc_market_manager
+            data_type: varchar
+            description: ""
+          - name: cc_division
+            data_type: number
+            description: ""
+          - name: cc_division_name
+            data_type: varchar
+            description: ""
+          - name: cc_company
+            data_type: number
+            description: ""
+          - name: cc_company_name
+            data_type: varchar
+            description: ""
+          - name: cc_street_number
+            data_type: varchar
+            description: ""
+          - name: cc_street_name
+            data_type: varchar
+            description: ""
+          - name: cc_street_type
+            data_type: varchar
+            description: ""
+          - name: cc_suite_number
+            data_type: varchar
+            description: ""
+          - name: cc_city
+            data_type: varchar
+            description: ""
+          - name: cc_county
+            data_type: varchar
+            description: ""
+          - name: cc_state
+            data_type: varchar
+            description: ""
+          - name: cc_zip
+            data_type: varchar
+            description: ""
+          - name: cc_country
+            data_type: varchar
+            description: ""
+          - name: cc_gmt_offset
+            data_type: number
+            description: ""
+          - name: cc_tax_percentage
+            data_type: number
+            description: ""
 
-      - name: catalog_returns 
-        config:
-          enabled: true
+      - name: catalog_page
+        description: ""
+        columns:
+          - name: cp_catalog_page_sk
+            data_type: number
+            description: ""
+          - name: cp_catalog_page_id
+            data_type: varchar
+            description: ""
+          - name: cp_start_date_sk
+            data_type: number
+            description: ""
+          - name: cp_end_date_sk
+            data_type: number
+            description: ""
+          - name: cp_department
+            data_type: varchar
+            description: ""
+          - name: cp_catalog_number
+            data_type: number
+            description: ""
+          - name: cp_catalog_page_number
+            data_type: number
+            description: ""
+          - name: cp_description
+            data_type: varchar
+            description: ""
+          - name: cp_type
+            data_type: varchar
+            description: ""
+
+      - name: catalog_returns
+        description: ""
+        columns:
+          - name: cr_returned_date_sk
+            data_type: number
+            description: ""
+          - name: cr_returned_time_sk
+            data_type: number
+            description: ""
+          - name: cr_item_sk
+            data_type: number
+            description: ""
+          - name: cr_refunded_customer_sk
+            data_type: number
+            description: ""
+          - name: cr_refunded_cdemo_sk
+            data_type: number
+            description: ""
+          - name: cr_refunded_hdemo_sk
+            data_type: number
+            description: ""
+          - name: cr_refunded_addr_sk
+            data_type: number
+            description: ""
+          - name: cr_returning_customer_sk
+            data_type: number
+            description: ""
+          - name: cr_returning_cdemo_sk
+            data_type: number
+            description: ""
+          - name: cr_returning_hdemo_sk
+            data_type: number
+            description: ""
+          - name: cr_returning_addr_sk
+            data_type: number
+            description: ""
+          - name: cr_call_center_sk
+            data_type: number
+            description: ""
+          - name: cr_catalog_page_sk
+            data_type: number
+            description: ""
+          - name: cr_ship_mode_sk
+            data_type: number
+            description: ""
+          - name: cr_warehouse_sk
+            data_type: number
+            description: ""
+          - name: cr_reason_sk
+            data_type: number
+            description: ""
+          - name: cr_order_number
+            data_type: number
+            description: ""
+          - name: cr_return_quantity
+            data_type: number
+            description: ""
+          - name: cr_return_amount
+            data_type: number
+            description: ""
+          - name: cr_return_tax
+            data_type: number
+            description: ""
+          - name: cr_return_amt_inc_tax
+            data_type: number
+            description: ""
+          - name: cr_fee
+            data_type: number
+            description: ""
+          - name: cr_return_ship_cost
+            data_type: number
+            description: ""
+          - name: cr_refunded_cash
+            data_type: number
+            description: ""
+          - name: cr_reversed_charge
+            data_type: number
+            description: ""
+          - name: cr_store_credit
+            data_type: number
+            description: ""
+          - name: cr_net_loss
+            data_type: number
+            description: ""
+
+      - name: catalog_sales
+        description: ""
+        columns:
+          - name: cs_sold_date_sk
+            data_type: number
+            description: ""
+          - name: cs_sold_time_sk
+            data_type: number
+            description: ""
+          - name: cs_ship_date_sk
+            data_type: number
+            description: ""
+          - name: cs_bill_customer_sk
+            data_type: number
+            description: ""
+          - name: cs_bill_cdemo_sk
+            data_type: number
+            description: ""
+          - name: cs_bill_hdemo_sk
+            data_type: number
+            description: ""
+          - name: cs_bill_addr_sk
+            data_type: number
+            description: ""
+          - name: cs_ship_customer_sk
+            data_type: number
+            description: ""
+          - name: cs_ship_cdemo_sk
+            data_type: number
+            description: ""
+          - name: cs_ship_hdemo_sk
+            data_type: number
+            description: ""
+          - name: cs_ship_addr_sk
+            data_type: number
+            description: ""
+          - name: cs_call_center_sk
+            data_type: number
+            description: ""
+          - name: cs_catalog_page_sk
+            data_type: number
+            description: ""
+          - name: cs_ship_mode_sk
+            data_type: number
+            description: ""
+          - name: cs_warehouse_sk
+            data_type: number
+            description: ""
+          - name: cs_item_sk
+            data_type: number
+            description: ""
+          - name: cs_promo_sk
+            data_type: number
+            description: ""
+          - name: cs_order_number
+            data_type: number
+            description: ""
+          - name: cs_quantity
+            data_type: number
+            description: ""
+          - name: cs_wholesale_cost
+            data_type: number
+            description: ""
+          - name: cs_list_price
+            data_type: number
+            description: ""
+          - name: cs_sales_price
+            data_type: number
+            description: ""
+          - name: cs_ext_discount_amt
+            data_type: number
+            description: ""
+          - name: cs_ext_sales_price
+            data_type: number
+            description: ""
+          - name: cs_ext_wholesale_cost
+            data_type: number
+            description: ""
+          - name: cs_ext_list_price
+            data_type: number
+            description: ""
+          - name: cs_ext_tax
+            data_type: number
+            description: ""
+          - name: cs_coupon_amt
+            data_type: number
+            description: ""
+          - name: cs_ext_ship_cost
+            data_type: number
+            description: ""
+          - name: cs_net_paid
+            data_type: number
+            description: ""
+          - name: cs_net_paid_inc_tax
+            data_type: number
+            description: ""
+          - name: cs_net_paid_inc_ship
+            data_type: number
+            description: ""
+          - name: cs_net_paid_inc_ship_tax
+            data_type: number
+            description: ""
+          - name: cs_net_profit
+            data_type: number
+            description: ""
+
+      - name: customer
+        description: ""
+        columns:
+          - name: c_customer_sk
+            data_type: number
+            description: ""
+          - name: c_customer_id
+            data_type: varchar
+            description: ""
+          - name: c_current_cdemo_sk
+            data_type: number
+            description: ""
+          - name: c_current_hdemo_sk
+            data_type: number
+            description: ""
+          - name: c_current_addr_sk
+            data_type: number
+            description: ""
+          - name: c_first_shipto_date_sk
+            data_type: number
+            description: ""
+          - name: c_first_sales_date_sk
+            data_type: number
+            description: ""
+          - name: c_salutation
+            data_type: varchar
+            description: ""
+          - name: c_first_name
+            data_type: varchar
+            description: ""
+          - name: c_last_name
+            data_type: varchar
+            description: ""
+          - name: c_preferred_cust_flag
+            data_type: varchar
+            description: ""
+          - name: c_birth_day
+            data_type: number
+            description: ""
+          - name: c_birth_month
+            data_type: number
+            description: ""
+          - name: c_birth_year
+            data_type: number
+            description: ""
+          - name: c_birth_country
+            data_type: varchar
+            description: ""
+          - name: c_login
+            data_type: varchar
+            description: ""
+          - name: c_email_address
+            data_type: varchar
+            description: ""
+          - name: c_last_review_date
+            data_type: varchar
+            description: ""
 
       - name: customer_address
-        config:
-          enabled: true
+        description: ""
+        columns:
+          - name: ca_address_sk
+            data_type: number
+            description: ""
+          - name: ca_address_id
+            data_type: varchar
+            description: ""
+          - name: ca_street_number
+            data_type: varchar
+            description: ""
+          - name: ca_street_name
+            data_type: varchar
+            description: ""
+          - name: ca_street_type
+            data_type: varchar
+            description: ""
+          - name: ca_suite_number
+            data_type: varchar
+            description: ""
+          - name: ca_city
+            data_type: varchar
+            description: ""
+          - name: ca_county
+            data_type: varchar
+            description: ""
+          - name: ca_state
+            data_type: varchar
+            description: ""
+          - name: ca_zip
+            data_type: varchar
+            description: ""
+          - name: ca_country
+            data_type: varchar
+            description: ""
+          - name: ca_gmt_offset
+            data_type: number
+            description: ""
+          - name: ca_location_type
+            data_type: varchar
+            description: ""
 
-      - name: customers
-        config:
-          enabled: true
+      - name: customer_demographics
+        description: ""
+        columns:
+          - name: cd_demo_sk
+            data_type: number
+            description: ""
+          - name: cd_gender
+            data_type: varchar
+            description: ""
+          - name: cd_marital_status
+            data_type: varchar
+            description: ""
+          - name: cd_education_status
+            data_type: varchar
+            description: ""
+          - name: cd_purchase_estimate
+            data_type: number
+            description: ""
+          - name: cd_credit_rating
+            data_type: varchar
+            description: ""
+          - name: cd_dep_count
+            data_type: number
+            description: ""
+          - name: cd_dep_employed_count
+            data_type: number
+            description: ""
+          - name: cd_dep_college_count
+            data_type: number
+            description: ""
 
       - name: date_dim
-        config:
-          enabled: true
+        description: ""
+        columns:
+          - name: d_date_sk
+            data_type: number
+            description: ""
+          - name: d_date_id
+            data_type: varchar
+            description: ""
+          - name: d_date
+            data_type: date
+            description: ""
+          - name: d_month_seq
+            data_type: number
+            description: ""
+          - name: d_week_seq
+            data_type: number
+            description: ""
+          - name: d_quarter_seq
+            data_type: number
+            description: ""
+          - name: d_year
+            data_type: number
+            description: ""
+          - name: d_dow
+            data_type: number
+            description: ""
+          - name: d_moy
+            data_type: number
+            description: ""
+          - name: d_dom
+            data_type: number
+            description: ""
+          - name: d_qoy
+            data_type: number
+            description: ""
+          - name: d_fy_year
+            data_type: number
+            description: ""
+          - name: d_fy_quarter_seq
+            data_type: number
+            description: ""
+          - name: d_fy_week_seq
+            data_type: number
+            description: ""
+          - name: d_day_name
+            data_type: varchar
+            description: ""
+          - name: d_quarter_name
+            data_type: varchar
+            description: ""
+          - name: d_holiday
+            data_type: varchar
+            description: ""
+          - name: d_weekend
+            data_type: varchar
+            description: ""
+          - name: d_following_holiday
+            data_type: varchar
+            description: ""
+          - name: d_first_dom
+            data_type: number
+            description: ""
+          - name: d_last_dom
+            data_type: number
+            description: ""
+          - name: d_same_day_ly
+            data_type: number
+            description: ""
+          - name: d_same_day_lq
+            data_type: number
+            description: ""
+          - name: d_current_day
+            data_type: varchar
+            description: ""
+          - name: d_current_week
+            data_type: varchar
+            description: ""
+          - name: d_current_month
+            data_type: varchar
+            description: ""
+          - name: d_current_quarter
+            data_type: varchar
+            description: ""
+          - name: d_current_year
+            data_type: varchar
+            description: ""
 
-      - name: store_sales 
-        config:
-          enabled: true
+      - name: household_demographics
+        description: ""
+        columns:
+          - name: hd_demo_sk
+            data_type: number
+            description: ""
+          - name: hd_income_band_sk
+            data_type: number
+            description: ""
+          - name: hd_buy_potential
+            data_type: varchar
+            description: ""
+          - name: hd_dep_count
+            data_type: number
+            description: ""
+          - name: hd_vehicle_count
+            data_type: number
+            description: ""
 
-      - name: store_returns 
-        config:
-          enabled: true
+      - name: income_band
+        description: ""
+        columns:
+          - name: ib_income_band_sk
+            data_type: number
+            description: ""
+          - name: ib_lower_bound
+            data_type: number
+            description: ""
+          - name: ib_upper_bound
+            data_type: number
+            description: ""
+
+      - name: inventory
+        description: ""
+        columns:
+          - name: inv_date_sk
+            data_type: number
+            description: ""
+          - name: inv_item_sk
+            data_type: number
+            description: ""
+          - name: inv_warehouse_sk
+            data_type: number
+            description: ""
+          - name: inv_quantity_on_hand
+            data_type: number
+            description: ""
+
+      - name: item
+        description: ""
+        columns:
+          - name: i_item_sk
+            data_type: number
+            description: ""
+          - name: i_item_id
+            data_type: varchar
+            description: ""
+          - name: i_rec_start_date
+            data_type: date
+            description: ""
+          - name: i_rec_end_date
+            data_type: date
+            description: ""
+          - name: i_item_desc
+            data_type: varchar
+            description: ""
+          - name: i_current_price
+            data_type: number
+            description: ""
+          - name: i_wholesale_cost
+            data_type: number
+            description: ""
+          - name: i_brand_id
+            data_type: number
+            description: ""
+          - name: i_brand
+            data_type: varchar
+            description: ""
+          - name: i_class_id
+            data_type: number
+            description: ""
+          - name: i_class
+            data_type: varchar
+            description: ""
+          - name: i_category_id
+            data_type: number
+            description: ""
+          - name: i_category
+            data_type: varchar
+            description: ""
+          - name: i_manufact_id
+            data_type: number
+            description: ""
+          - name: i_manufact
+            data_type: varchar
+            description: ""
+          - name: i_size
+            data_type: varchar
+            description: ""
+          - name: i_formulation
+            data_type: varchar
+            description: ""
+          - name: i_color
+            data_type: varchar
+            description: ""
+          - name: i_units
+            data_type: varchar
+            description: ""
+          - name: i_container
+            data_type: varchar
+            description: ""
+          - name: i_manager_id
+            data_type: number
+            description: ""
+          - name: i_product_name
+            data_type: varchar
+            description: ""
+
+      - name: promotion
+        description: ""
+        columns:
+          - name: p_promo_sk
+            data_type: number
+            description: ""
+          - name: p_promo_id
+            data_type: varchar
+            description: ""
+          - name: p_start_date_sk
+            data_type: number
+            description: ""
+          - name: p_end_date_sk
+            data_type: number
+            description: ""
+          - name: p_item_sk
+            data_type: number
+            description: ""
+          - name: p_cost
+            data_type: number
+            description: ""
+          - name: p_response_target
+            data_type: number
+            description: ""
+          - name: p_promo_name
+            data_type: varchar
+            description: ""
+          - name: p_channel_dmail
+            data_type: varchar
+            description: ""
+          - name: p_channel_email
+            data_type: varchar
+            description: ""
+          - name: p_channel_catalog
+            data_type: varchar
+            description: ""
+          - name: p_channel_tv
+            data_type: varchar
+            description: ""
+          - name: p_channel_radio
+            data_type: varchar
+            description: ""
+          - name: p_channel_press
+            data_type: varchar
+            description: ""
+          - name: p_channel_event
+            data_type: varchar
+            description: ""
+          - name: p_channel_demo
+            data_type: varchar
+            description: ""
+          - name: p_channel_details
+            data_type: varchar
+            description: ""
+          - name: p_purpose
+            data_type: varchar
+            description: ""
+          - name: p_discount_active
+            data_type: varchar
+            description: ""
+
+      - name: reason
+        description: ""
+        columns:
+          - name: r_reason_sk
+            data_type: number
+            description: ""
+          - name: r_reason_id
+            data_type: varchar
+            description: ""
+          - name: r_reason_desc
+            data_type: varchar
+            description: ""
+
+      - name: ship_mode
+        description: ""
+        columns:
+          - name: sm_ship_mode_sk
+            data_type: number
+            description: ""
+          - name: sm_ship_mode_id
+            data_type: varchar
+            description: ""
+          - name: sm_type
+            data_type: varchar
+            description: ""
+          - name: sm_code
+            data_type: varchar
+            description: ""
+          - name: sm_carrier
+            data_type: varchar
+            description: ""
+          - name: sm_contract
+            data_type: varchar
+            description: ""
+
+      - name: store
+        description: ""
+        columns:
+          - name: s_store_sk
+            data_type: number
+            description: ""
+          - name: s_store_id
+            data_type: varchar
+            description: ""
+          - name: s_rec_start_date
+            data_type: date
+            description: ""
+          - name: s_rec_end_date
+            data_type: date
+            description: ""
+          - name: s_closed_date_sk
+            data_type: number
+            description: ""
+          - name: s_store_name
+            data_type: varchar
+            description: ""
+          - name: s_number_employees
+            data_type: number
+            description: ""
+          - name: s_floor_space
+            data_type: number
+            description: ""
+          - name: s_hours
+            data_type: varchar
+            description: ""
+          - name: s_manager
+            data_type: varchar
+            description: ""
+          - name: s_market_id
+            data_type: number
+            description: ""
+          - name: s_geography_class
+            data_type: varchar
+            description: ""
+          - name: s_market_desc
+            data_type: varchar
+            description: ""
+          - name: s_market_manager
+            data_type: varchar
+            description: ""
+          - name: s_division_id
+            data_type: number
+            description: ""
+          - name: s_division_name
+            data_type: varchar
+            description: ""
+          - name: s_company_id
+            data_type: number
+            description: ""
+          - name: s_company_name
+            data_type: varchar
+            description: ""
+          - name: s_street_number
+            data_type: varchar
+            description: ""
+          - name: s_street_name
+            data_type: varchar
+            description: ""
+          - name: s_street_type
+            data_type: varchar
+            description: ""
+          - name: s_suite_number
+            data_type: varchar
+            description: ""
+          - name: s_city
+            data_type: varchar
+            description: ""
+          - name: s_county
+            data_type: varchar
+            description: ""
+          - name: s_state
+            data_type: varchar
+            description: ""
+          - name: s_zip
+            data_type: varchar
+            description: ""
+          - name: s_country
+            data_type: varchar
+            description: ""
+          - name: s_gmt_offset
+            data_type: number
+            description: ""
+          - name: s_tax_precentage
+            data_type: number
+            description: ""
+
+      - name: store_returns
+        description: ""
+        columns:
+          - name: sr_returned_date_sk
+            data_type: number
+            description: ""
+          - name: sr_return_time_sk
+            data_type: number
+            description: ""
+          - name: sr_item_sk
+            data_type: number
+            description: ""
+          - name: sr_customer_sk
+            data_type: number
+            description: ""
+          - name: sr_cdemo_sk
+            data_type: number
+            description: ""
+          - name: sr_hdemo_sk
+            data_type: number
+            description: ""
+          - name: sr_addr_sk
+            data_type: number
+            description: ""
+          - name: sr_store_sk
+            data_type: number
+            description: ""
+          - name: sr_reason_sk
+            data_type: number
+            description: ""
+          - name: sr_ticket_number
+            data_type: number
+            description: ""
+          - name: sr_return_quantity
+            data_type: number
+            description: ""
+          - name: sr_return_amt
+            data_type: number
+            description: ""
+          - name: sr_return_tax
+            data_type: number
+            description: ""
+          - name: sr_return_amt_inc_tax
+            data_type: number
+            description: ""
+          - name: sr_fee
+            data_type: number
+            description: ""
+          - name: sr_return_ship_cost
+            data_type: number
+            description: ""
+          - name: sr_refunded_cash
+            data_type: number
+            description: ""
+          - name: sr_reversed_charge
+            data_type: number
+            description: ""
+          - name: sr_store_credit
+            data_type: number
+            description: ""
+          - name: sr_net_loss
+            data_type: number
+            description: ""
+
+      - name: store_sales
+        description: ""
+        columns:
+          - name: ss_sold_date_sk
+            data_type: number
+            description: ""
+          - name: ss_sold_time_sk
+            data_type: number
+            description: ""
+          - name: ss_item_sk
+            data_type: number
+            description: ""
+          - name: ss_customer_sk
+            data_type: number
+            description: ""
+          - name: ss_cdemo_sk
+            data_type: number
+            description: ""
+          - name: ss_hdemo_sk
+            data_type: number
+            description: ""
+          - name: ss_addr_sk
+            data_type: number
+            description: ""
+          - name: ss_store_sk
+            data_type: number
+            description: ""
+          - name: ss_promo_sk
+            data_type: number
+            description: ""
+          - name: ss_ticket_number
+            data_type: number
+            description: ""
+          - name: ss_quantity
+            data_type: number
+            description: ""
+          - name: ss_wholesale_cost
+            data_type: number
+            description: ""
+          - name: ss_list_price
+            data_type: number
+            description: ""
+          - name: ss_sales_price
+            data_type: number
+            description: ""
+          - name: ss_ext_discount_amt
+            data_type: number
+            description: ""
+          - name: ss_ext_sales_price
+            data_type: number
+            description: ""
+          - name: ss_ext_wholesale_cost
+            data_type: number
+            description: ""
+          - name: ss_ext_list_price
+            data_type: number
+            description: ""
+          - name: ss_ext_tax
+            data_type: number
+            description: ""
+          - name: ss_coupon_amt
+            data_type: number
+            description: ""
+          - name: ss_net_paid
+            data_type: number
+            description: ""
+          - name: ss_net_paid_inc_tax
+            data_type: number
+            description: ""
+          - name: ss_net_profit
+            data_type: number
+            description: ""
 
       - name: time_dim
-        config:
-          enabled: true
+        description: ""
+        columns:
+          - name: t_time_sk
+            data_type: number
+            description: ""
+          - name: t_time_id
+            data_type: varchar
+            description: ""
+          - name: t_time
+            data_type: number
+            description: ""
+          - name: t_hour
+            data_type: number
+            description: ""
+          - name: t_minute
+            data_type: number
+            description: ""
+          - name: t_second
+            data_type: number
+            description: ""
+          - name: t_am_pm
+            data_type: varchar
+            description: ""
+          - name: t_shift
+            data_type: varchar
+            description: ""
+          - name: t_sub_shift
+            data_type: varchar
+            description: ""
+          - name: t_meal_time
+            data_type: varchar
+            description: ""
 
-      - name: web_sales 
-        config:
-          enabled: true
+      - name: warehouse
+        description: ""
+        columns:
+          - name: w_warehouse_sk
+            data_type: number
+            description: ""
+          - name: w_warehouse_id
+            data_type: varchar
+            description: ""
+          - name: w_warehouse_name
+            data_type: varchar
+            description: ""
+          - name: w_warehouse_sq_ft
+            data_type: number
+            description: ""
+          - name: w_street_number
+            data_type: varchar
+            description: ""
+          - name: w_street_name
+            data_type: varchar
+            description: ""
+          - name: w_street_type
+            data_type: varchar
+            description: ""
+          - name: w_suite_number
+            data_type: varchar
+            description: ""
+          - name: w_city
+            data_type: varchar
+            description: ""
+          - name: w_county
+            data_type: varchar
+            description: ""
+          - name: w_state
+            data_type: varchar
+            description: ""
+          - name: w_zip
+            data_type: varchar
+            description: ""
+          - name: w_country
+            data_type: varchar
+            description: ""
+          - name: w_gmt_offset
+            data_type: number
+            description: ""
 
-      - name: web_returns 
-        config:
-          enabled: true
-      
+      - name: web_page
+        description: ""
+        columns:
+          - name: wp_web_page_sk
+            data_type: number
+            description: ""
+          - name: wp_web_page_id
+            data_type: varchar
+            description: ""
+          - name: wp_rec_start_date
+            data_type: date
+            description: ""
+          - name: wp_rec_end_date
+            data_type: date
+            description: ""
+          - name: wp_creation_date_sk
+            data_type: number
+            description: ""
+          - name: wp_access_date_sk
+            data_type: number
+            description: ""
+          - name: wp_autogen_flag
+            data_type: varchar
+            description: ""
+          - name: wp_customer_sk
+            data_type: number
+            description: ""
+          - name: wp_url
+            data_type: varchar
+            description: ""
+          - name: wp_type
+            data_type: varchar
+            description: ""
+          - name: wp_char_count
+            data_type: number
+            description: ""
+          - name: wp_link_count
+            data_type: number
+            description: ""
+          - name: wp_image_count
+            data_type: number
+            description: ""
+          - name: wp_max_ad_count
+            data_type: number
+            description: ""
+
+      - name: web_returns
+        description: ""
+        columns:
+          - name: wr_returned_date_sk
+            data_type: number
+            description: ""
+          - name: wr_returned_time_sk
+            data_type: number
+            description: ""
+          - name: wr_item_sk
+            data_type: number
+            description: ""
+          - name: wr_refunded_customer_sk
+            data_type: number
+            description: ""
+          - name: wr_refunded_cdemo_sk
+            data_type: number
+            description: ""
+          - name: wr_refunded_hdemo_sk
+            data_type: number
+            description: ""
+          - name: wr_refunded_addr_sk
+            data_type: number
+            description: ""
+          - name: wr_returning_customer_sk
+            data_type: number
+            description: ""
+          - name: wr_returning_cdemo_sk
+            data_type: number
+            description: ""
+          - name: wr_returning_hdemo_sk
+            data_type: number
+            description: ""
+          - name: wr_returning_addr_sk
+            data_type: number
+            description: ""
+          - name: wr_web_page_sk
+            data_type: number
+            description: ""
+          - name: wr_reason_sk
+            data_type: number
+            description: ""
+          - name: wr_order_number
+            data_type: number
+            description: ""
+          - name: wr_return_quantity
+            data_type: number
+            description: ""
+          - name: wr_return_amt
+            data_type: number
+            description: ""
+          - name: wr_return_tax
+            data_type: number
+            description: ""
+          - name: wr_return_amt_inc_tax
+            data_type: number
+            description: ""
+          - name: wr_fee
+            data_type: number
+            description: ""
+          - name: wr_return_ship_cost
+            data_type: number
+            description: ""
+          - name: wr_refunded_cash
+            data_type: number
+            description: ""
+          - name: wr_reversed_charge
+            data_type: number
+            description: ""
+          - name: wr_account_credit
+            data_type: number
+            description: ""
+          - name: wr_net_loss
+            data_type: number
+            description: ""
+
+      - name: web_sales
+        description: ""
+        columns:
+          - name: ws_sold_date_sk
+            data_type: number
+            description: ""
+          - name: ws_sold_time_sk
+            data_type: number
+            description: ""
+          - name: ws_ship_date_sk
+            data_type: number
+            description: ""
+          - name: ws_item_sk
+            data_type: number
+            description: ""
+          - name: ws_bill_customer_sk
+            data_type: number
+            description: ""
+          - name: ws_bill_cdemo_sk
+            data_type: number
+            description: ""
+          - name: ws_bill_hdemo_sk
+            data_type: number
+            description: ""
+          - name: ws_bill_addr_sk
+            data_type: number
+            description: ""
+          - name: ws_ship_customer_sk
+            data_type: number
+            description: ""
+          - name: ws_ship_cdemo_sk
+            data_type: number
+            description: ""
+          - name: ws_ship_hdemo_sk
+            data_type: number
+            description: ""
+          - name: ws_ship_addr_sk
+            data_type: number
+            description: ""
+          - name: ws_web_page_sk
+            data_type: number
+            description: ""
+          - name: ws_web_site_sk
+            data_type: number
+            description: ""
+          - name: ws_ship_mode_sk
+            data_type: number
+            description: ""
+          - name: ws_warehouse_sk
+            data_type: number
+            description: ""
+          - name: ws_promo_sk
+            data_type: number
+            description: ""
+          - name: ws_order_number
+            data_type: number
+            description: ""
+          - name: ws_quantity
+            data_type: number
+            description: ""
+          - name: ws_wholesale_cost
+            data_type: number
+            description: ""
+          - name: ws_list_price
+            data_type: number
+            description: ""
+          - name: ws_sales_price
+            data_type: number
+            description: ""
+          - name: ws_ext_discount_amt
+            data_type: number
+            description: ""
+          - name: ws_ext_sales_price
+            data_type: number
+            description: ""
+          - name: ws_ext_wholesale_cost
+            data_type: number
+            description: ""
+          - name: ws_ext_list_price
+            data_type: number
+            description: ""
+          - name: ws_ext_tax
+            data_type: number
+            description: ""
+          - name: ws_coupon_amt
+            data_type: number
+            description: ""
+          - name: ws_ext_ship_cost
+            data_type: number
+            description: ""
+          - name: ws_net_paid
+            data_type: number
+            description: ""
+          - name: ws_net_paid_inc_tax
+            data_type: number
+            description: ""
+          - name: ws_net_paid_inc_ship
+            data_type: number
+            description: ""
+          - name: ws_net_paid_inc_ship_tax
+            data_type: number
+            description: ""
+          - name: ws_net_profit
+            data_type: number
+            description: ""
+
+      - name: web_site
+        description: ""
+        columns:
+          - name: web_site_sk
+            data_type: number
+            description: ""
+          - name: web_site_id
+            data_type: varchar
+            description: ""
+          - name: web_rec_start_date
+            data_type: date
+            description: ""
+          - name: web_rec_end_date
+            data_type: date
+            description: ""
+          - name: web_name
+            data_type: varchar
+            description: ""
+          - name: web_open_date_sk
+            data_type: number
+            description: ""
+          - name: web_close_date_sk
+            data_type: number
+            description: ""
+          - name: web_class
+            data_type: varchar
+            description: ""
+          - name: web_manager
+            data_type: varchar
+            description: ""
+          - name: web_mkt_id
+            data_type: number
+            description: ""
+          - name: web_mkt_class
+            data_type: varchar
+            description: ""
+          - name: web_mkt_desc
+            data_type: varchar
+            description: ""
+          - name: web_market_manager
+            data_type: varchar
+            description: ""
+          - name: web_company_id
+            data_type: number
+            description: ""
+          - name: web_company_name
+            data_type: varchar
+            description: ""
+          - name: web_street_number
+            data_type: varchar
+            description: ""
+          - name: web_street_name
+            data_type: varchar
+            description: ""
+          - name: web_street_type
+            data_type: varchar
+            description: ""
+          - name: web_suite_number
+            data_type: varchar
+            description: ""
+          - name: web_city
+            data_type: varchar
+            description: ""
+          - name: web_county
+            data_type: varchar
+            description: ""
+          - name: web_state
+            data_type: varchar
+            description: ""
+          - name: web_zip
+            data_type: varchar
+            description: ""
+          - name: web_country
+            data_type: varchar
+            description: ""
+          - name: web_gmt_offset
+            data_type: number
+            description: ""
+          - name: web_tax_percentage
+            data_type: number
+            description: ""
