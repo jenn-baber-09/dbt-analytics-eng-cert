@@ -1,9 +1,14 @@
 version: 2
 
 sources:
-  - name: tpcds_sf100tcl
-    description: ""
+  - name: snowflake_sample_data
     database: snowflake_sample_data
+    schema: tpcds_sf100tcl
+    description: |
+      Sample data provided by Snowflake when creating test account to use in dbt study
+    config:
+      enabled: true
+      
     tables:
       - name: call_center
         description: ""
