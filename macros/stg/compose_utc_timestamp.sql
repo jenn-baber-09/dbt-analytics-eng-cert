@@ -34,7 +34,9 @@
       else
         {# Snowflake: create a TIMESTAMP_NTZ from date + time parts 🧱 #}
         TIMESTAMP_NTZ_FROM_PARTS(
-          {{ date_expr }},
+          year({{ date_expr }}),
+          month({{ date_expr }}),
+          day({{ date_expr }}),
           {{ hour_expr }},
           {{ minute_expr }},
           {{ second_expr }}

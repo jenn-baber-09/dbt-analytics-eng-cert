@@ -10,7 +10,15 @@ with source as (
 
     select * 
     from {{ source('snowflake_sample_data', 'store_sales') }}
-    -- need to put incremental filter HERE to maximize performance 
+
+    -- used to replace date / time skews with actual date / time values
+    left join {{ source('snowflake_sample_data', 'date_dim') }} as date_dim 
+        on ss_sold_date_sk = date_dim.d_date_sk 
+        
+    left join {{ source('snowflake_sample_data', 'time_dim') }} as time_dim 
+        on ss_sold_time_sk = time_dim.t_time_sk
+
+    -- ‼️🛑🖐️ need to put incremental filter HERE to maximize performance 
     -- but have to generate timestamp for comparison against max(dbt_updated_at) in target table, which is done in the macro above
     {#
         {% if is_incremental() %}
@@ -26,7 +34,7 @@ with source as (
 renamed as (
 
     select
-       -- creating PK and watermark columns for incremental model
+       -- creating PK using generate_surrogate_key
        -- https://github.com/dbt-labs/dbt-utils#generate_surrogate_key-source
 
        {{ dbt_utils.generate_surrogate_key([
@@ -35,7 +43,7 @@ renamed as (
             'ss_item_sk',
             'ss_customer_sk',
             'ss_ticket_number'
-        ]) }} as merge_key,      
+        ]) }} as unique_key,      
 
        -- creating watermark columns for initial sync and last update 
        -- to use in incremental filters, microbatching, etc. throughout project  
@@ -46,14 +54,15 @@ renamed as (
        'Store' as sale_origin, 
 
        -- compiled sold_datetime TIMESTAMP_NTZ for better
-       -- datetime comparisons across data-- using dimensions
+       -- datetime comparisons across data; using dimensions
        -- from both date_dim and time_dim table as parameters 
+       -- assumming UTC timezone for source data, can be parameterized if needed
        {{ compose_utc_timestamp(
-            date_dim.d_date, -- date from date_dim table
-            time_dim.t_hour, -- hour from time_dim table
-            time_dim.t_minute, -- minute from time_dim table
-            time_dim.t_second, -- second from time_dim table
-            source_tz='UTC' -- assumming UTC timezone for source data, can be parameterized if needed
+            date_expr='d_date',  
+            hour_expr='t_hour', 
+            minute_expr='t_minute', 
+            second_expr='t_second',           
+            source_tz='UTC',
             ) 
         }}  as sold_datetime, 
        
@@ -83,15 +92,6 @@ renamed as (
 
     from source
 
-    -- replacing date / time skews with actual date / time values
-    left join {{ source('snowflake_sample_data', 'date_dim') }} as date_dim 
-        on ss_sold_date_sk = date_dim.d_date_sk 
-    left join {{ source('snowflake_sample_data', 'time_dim') }} as time_dim 
-        on ss_sold_time_sk = time_dim.t_time_sk
-
-    -- replacing customer address skews with actual address values
-    left join {{ source('snowflake_sample_data', 'customer_address') }} as cust_address
-        on ss_addr_sk = cust_address.ca_address_sk
     
     {% if is_incremental() %}
 
