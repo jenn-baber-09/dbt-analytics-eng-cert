@@ -27,13 +27,14 @@ models:
   dbt_analytics_eng_cert:
     
     stg: 
-      +materialized: view
-      +schema: staging
-      # +materialized: incremental 
-      # +incremental_strategy: merge
-      # +unique_key: merge_key
-      # +on_schema_change: append_new_columns 
-      # +partition_by:
-        # - dbt_updated_at
-      # +exclude: 
-        # - dbt_synced_at
+      snowflake_sample_data:
+        +materialized: view
+        +schema: staging
+        # +materialized: incremental 
+        # +incremental_strategy: merge
+        # +unique_key: merge_key
+        # +on_schema_change: append_new_columns 
+        # +partition_by:
+          # - dbt_updated_at
+        # +exclude: 
+          # - dbt_synced_at

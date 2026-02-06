@@ -12,13 +12,10 @@
         {{ log("custom_schema_name: " ~ custom) }}
     {% endif %}
 
-    {# case 1️⃣: no custom schema provided → fail fast 💥 #}
+    {# case 1️⃣: no custom schema provided → goes to PUBLIC schema #}
     {%- if custom is none or custom == "" -%}
-        {%- do exceptions.raise_compiler_error(
-            "missing +schema config for node '" ~ node.unique_id ~
-            "' (name='" ~ node.name ~ "', path='" ~ node.original_file_path ~ "'). " ~
-            "set +schema in dbt_project.yml or via {{ config(schema='...') }}."
-        ) -%}
+        {{ return(target.schema)}}
+
     {%- endif -%}
 
     {# case 2️⃣: dev-only → use dbt default: <target.schema>_<custom_schema> 👷‍♀️ #}
