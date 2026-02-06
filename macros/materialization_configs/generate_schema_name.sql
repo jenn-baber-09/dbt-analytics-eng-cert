@@ -25,13 +25,14 @@
     If NO custom schema is configured for this model...
     (aka: no +schema defined, nothing fancy happening-- BUT IT'S WRONG ❌)
   #}
-  {%- if custom_schema_name is none -%}
+  {%- if custom_schema_name is none or target.name | lower == 'development' -%}
 
     {# 
       🏠 `target.schema`:
         - the default schema defined in:
           • profiles.yml (dbt Core)
-          • OR dbt Cloud Environment connection settings 
+          • OR dbt Cloud Environment connection settings
+        - this keeps the default schema with the unique user prefix in dev 
         ‼️ PUBLIC is used in all Snowflake connections for this project, 
             so that's where it is coming from 😅
 
@@ -42,8 +43,8 @@
     {{ return(target.schema) }}
 
   {# 
-    💅 CASE 2:
-    A custom schema *was* provided
+    💅 CASE 3:
+    A custom schema *was* provided and NOT in dev
     (for example: +schema: staging — we love a clear intention 😇)
   #}
   {%- else -%}

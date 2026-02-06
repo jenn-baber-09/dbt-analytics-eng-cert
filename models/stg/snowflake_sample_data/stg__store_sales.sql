@@ -6,101 +6,127 @@
 
 {%- endif -%}
 
-with source as (
+with
+    source as (
 
-    select * 
-    from {{ source('snowflake_sample_data', 'store_sales') }}
+        select *,
 
-    -- used to replace date / time skews with actual date / time values
-    left join {{ source('snowflake_sample_data', 'date_dim') }} as date_dim 
-        on ss_sold_date_sk = date_dim.d_date_sk 
-        
-    left join {{ source('snowflake_sample_data', 'time_dim') }} as time_dim 
-        on ss_sold_time_sk = time_dim.t_time_sk
+            -- compiled TIMESTAMP_NTZ value from source for incremental loads
+            -- Uses dimensions from both date_dim ^ time_dim table
+            -- Assumming UTC timezone for source data
+            {{
+                compose_utc_timestamp(
+                    date_expr="d_date",
+                    hour_expr="t_hour",
+                    minute_expr="t_minute",
+                    second_expr="t_second",
+                    source_tz="UTC",
+                )
+            }} as source_timestamp_field
 
-    -- ‼️🛑🖐️ need to put incremental filter HERE to maximize performance 
-    -- but have to generate timestamp for comparison against max(dbt_updated_at) in target table, which is done in the macro above
-    {#
+        from {{ source("snowflake_sample_data", "store_sales") }}
+
+        -- used to replace date / time skews with actual date / time values
+        left join
+            {{ source("snowflake_sample_data", "date_dim") }} as date_dim
+            on ss_sold_date_sk = date_dim.d_date_sk
+
+        left join
+            {{ source("snowflake_sample_data", "time_dim") }} as time_dim
+            on ss_sold_time_sk = time_dim.t_time_sk
+
         {% if is_incremental() %}
-
             -- filter for new or updated records only to increase performance 🏃‍♂️💨
-            where dbt_updated_at > {{ last_update_date }} 
+            where source_timestamp_field > {{ last_update_date }}
 
         {% endif %}
-    #}
 
-),
+    ),
 
-renamed as (
+    renamed as (
 
-    select
-       -- creating PK using generate_surrogate_key
-       -- https://github.com/dbt-labs/dbt-utils#generate_surrogate_key-source
+        select
+            -- creating PK using generate_surrogate_key
+            -- https://github.com/dbt-labs/dbt-utils#generate_surrogate_key-source
+            {{
+                dbt_utils.generate_surrogate_key(
+                    [
+                        "ss_sold_date_sk",
+                        "ss_sold_time_sk",
+                        "ss_item_sk",
+                        "ss_customer_sk",
+                        "ss_ticket_number",
+                    ]
+                )
+            }} as unique_key,
 
-       {{ dbt_utils.generate_surrogate_key([
-            'ss_sold_date_sk',
-            'ss_sold_time_sk',
-            'ss_item_sk',
-            'ss_customer_sk',
-            'ss_ticket_number'
-        ]) }} as unique_key,      
+            -- creating watermark columns for initial sync and last update 
+            -- to use in incremental filters, microbatching, etc. throughout project  
+            {{ watermark_date_create() }},
 
-       -- creating watermark columns for initial sync and last update 
-       -- to use in incremental filters, microbatching, etc. throughout project  
-       {{ watermark_date_create() }},
+            -- adding categorical indicator to tell origin of sale record
+            -- options: 'Catalog', 'Store', 'Web'
+            'Store' as sale_origin,
 
-        -- adding categorical indicator to tell origin of sale record
-        -- options: 'Catalog', 'Store', 'Web'
-       'Store' as sale_origin, 
+            ss_sold_date_sk as sold_date_sk, 
+            ss_sold_time_sk as sold_time_sk, 
+            d_date as sold_date, -- returns YYYY-MM-DD value 
+            (t_hour || ':' || t_minute || ':' || t_second) as sold_time, -- returns HH:MM:SS value
 
-       -- compiled sold_datetime TIMESTAMP_NTZ for better
-       -- datetime comparisons across data; using dimensions
-       -- from both date_dim and time_dim table as parameters 
-       -- assumming UTC timezone for source data, can be parameterized if needed
-       {{ compose_utc_timestamp(
-            date_expr='d_date',  
-            hour_expr='t_hour', 
-            minute_expr='t_minute', 
-            second_expr='t_second',           
-            source_tz='UTC',
-            ) 
-        }}  as sold_datetime, 
-       
-       -- all FK's to dim tables 
-       ss_item_sk as item_sk,
-       ss_customer_sk as customer_sk,
-       ss_cdemo_sk as customer_demographics_sk,
-       ss_addr_sk as customer_address_sk, 
-       ss_store_sk as store_sk,
-       ss_promo_sk as promo_sk,
-       
-       -- other relevant fields from source table with more descriptive names
-       ss_ticket_number as ticket_number,
-       ss_quantity as quantity,
-       ss_wholesale_cost as wholesale_cost,
-       ss_list_price as list_price,
-       ss_sales_price as sales_price,
-       ss_ext_discount_amt as external_discount_amount,
-       ss_ext_sales_price as external_sales_price,
-       ss_ext_wholesale_cost as external_wholesale_cost,
-       ss_ext_list_price as external_list_price,
-       ss_ext_tax as external_tax,
-       ss_coupon_amt as coupon_amount,
-       ss_net_paid as net_paid,
-       ss_net_paid_inc_tax as net_paid_income_tax,
-       ss_net_profit as net_profit
+            -- if incremental load, use already loaded datetime
+            -- else, build UTC datetime value with macro
+            {%- if is_incremental() -%} 
+                source_timestamp_field as sold_datetime,
 
-    from source
+            {%- else -%}
+                {{
+                    compose_utc_timestamp(
+                        date_expr="d_date",
+                        hour_expr="t_hour",
+                        minute_expr="t_minute",
+                        second_expr="t_second",
+                        source_tz="UTC",
+                    )
+                }} as sold_datetime,
 
-    
-    {% if is_incremental() %}
+            {%- endif -%}
 
-        -- ‼️needs to be moved into source CTE to maximize performance, but keeping here for visibility during development‼️
-        where dbt_updated_at > {{ last_update_date }} 
+            -- all FK's to dim tables 
+            ss_item_sk as item_sk,
+            ss_customer_sk as customer_sk,
+            ss_cdemo_sk as customer_demographics_sk,
+            ss_hdemo_sk as household_demographics_sk,
+            ss_addr_sk as customer_address_sk,
+            ss_store_sk as store_sk,
+            ss_promo_sk as promo_sk,
 
-    {% endif %}
-    
+            -- other relevant fields from source table with more descriptive names
+            ss_ticket_number as ticket_number,
+            ss_quantity as quantity,
+            ss_wholesale_cost as wholesale_cost,
+            ss_list_price as list_price,
+            ss_sales_price as sales_price,
+            ss_ext_discount_amt as external_discount_amount,
+            ss_ext_sales_price as external_sales_price,
+            ss_ext_wholesale_cost as external_wholesale_cost,
+            ss_ext_list_price as external_list_price,
+            ss_ext_tax as external_tax,
+            ss_coupon_amt as coupon_amount,
+            ss_net_paid as net_paid,
+            ss_net_paid_inc_tax as net_paid_income_tax,
+            ss_net_profit as net_profit
 
-)
+        from source
 
-select * from renamed
+        {% if is_incremental() %}
+
+            -- ‼️needs to be moved into source CTE to maximize performance, but
+            -- keeping here for visibility during development‼️
+            where dbt_updated_at > {{ last_update_date }}
+
+        {% endif %}
+
+    )
+
+select *
+from renamed
