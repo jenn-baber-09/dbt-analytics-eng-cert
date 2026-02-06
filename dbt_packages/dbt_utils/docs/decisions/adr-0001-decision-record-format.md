@@ -1,7 +1,7 @@
 # FORMAT AND STRUCTURE OF DECISION RECORDS
 
 ## CONTEXT
-We previousy decicded to record any decisions made in this project using Nygard's architecture decision record (ADR) format. Should we continue with this format or adopt an alternative?
+We previously decided to record any decisions made in this project using Nygard's architecture decision record (ADR) format. Should we continue with this format or adopt an alternative?
 
 There are multiple options for formatting:
 * [MADR 3.0.0-beta.2](https://github.com/adr/madr/blob/3.0.0-beta.2/template/adr-template.md) – Markdown Any Decision Records
@@ -27,9 +27,9 @@ Chosen option: "MADR 3.0.0-beta.2", because
 
 * MADR allows for structured capturing of any decision.
 * The MADR project is active and continues to iterate with new versions.
-* The MADR project itself is maintained like sofware with specifications and new versions.
+* The MADR project itself is maintained like software with specifications and new versions.
 
-Choosen option: "keep original formatting", because it feels special and deserves to be celebrated, even if there is slight inconsistency of formatting as a result. This decision is easily reversible in the future, if need be.
+Chosen option: "keep original formatting", because it feels special and deserves to be celebrated, even if there is slight inconsistency of formatting as a result. This decision is easily reversible in the future, if need be.
 
 ## STATUS
 Accepted.
