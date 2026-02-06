@@ -8,8 +8,8 @@ test: ## Run the integration tests.
 .PHONY: dev
 dev: ## Installs dbt-* packages in develop mode along with development dependencies.
 	@\
-	echo "Install dbt-$(target)..."; \
-	pip install --upgrade pip setuptools; \
+    echo "Install dbt-$(target)..."; \
+    pip install --upgrade pip setuptools; \
 	pip install --pre "dbt-$(target)" -r dev-requirements.txt;
 
 .PHONY: setup-db

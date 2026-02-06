@@ -1,5 +1,5 @@
 {% macro my_custom_macro() %}
-    {{ return('whatever') }}
+    whatever
 {% endmacro %}
 
 {% macro limit_zero() %}

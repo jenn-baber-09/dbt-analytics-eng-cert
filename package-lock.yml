@@ -1,11 +1,11 @@
 packages:
-- package: dbt-labs/audit_helper
-  name: audit_helper
-  version: 0.12.2
-- package: dbt-labs/codegen
-  name: codegen
-  version: 0.14.0
-- package: dbt-labs/dbt_utils
-  name: dbt_utils
-  version: 1.3.3
-sha1_hash: 933e5eec747f290e0b36a5ba13f8585faac453f7
+  - name: dbt_utils
+    package: dbt-labs/dbt_utils
+    version: 1.3.3
+  - git: https://github.com/jenn-baber-09/dbt-codegen.git
+    name: codegen
+    revision: db1b3a968318947dedaa91b489422058697f2bb7
+  - name: audit_helper
+    package: dbt-labs/audit_helper
+    version: 0.12.2
+sha1_hash: 2a91db293ecb343346a27d8132dd258884e7dbdc

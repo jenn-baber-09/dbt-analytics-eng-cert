@@ -5,7 +5,7 @@ test: ## Run the integration tests.
 	@./run_test.sh $(target)
 
 .PHONY: test_tox
-test_tox: ## Run the integration tests with tox
+test: ## Run the integration tests with tox
 	@\
 	tox -e dbt_integration_$(target)
 
