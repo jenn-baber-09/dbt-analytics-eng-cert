@@ -36,8 +36,8 @@
     }'
 ============================================================================= #}
 
-    {{ codegen.generate_base_model(
-        source_name='snowflake_sample_data',
-        table_name='promotions'
+{{ codegen.generate_base_model(
+    source_name='snowflake_sample_data',
+    table_name='store_sales'
 
 ) }}
