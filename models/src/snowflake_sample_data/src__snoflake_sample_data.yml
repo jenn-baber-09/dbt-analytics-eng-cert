@@ -11,1372 +11,1824 @@ sources:
       
     tables:
       - name: call_center
-        description: ""
+        description: |
+          Dimension table with Call Center details 
         columns:
-          - name: cc_call_center_sk
-            data_type: number
-            description: ""
-          - name: cc_call_center_id
-            data_type: varchar
-            description: ""
-          - name: cc_rec_start_date
-            data_type: date
-            description: ""
-          - name: cc_rec_end_date
-            data_type: date
-            description: ""
-          - name: cc_closed_date_sk
-            data_type: number
-            description: ""
-          - name: cc_open_date_sk
-            data_type: number
-            description: ""
-          - name: cc_name
-            data_type: varchar
-            description: ""
-          - name: cc_class
-            data_type: varchar
-            description: ""
-          - name: cc_employees
-            data_type: number
-            description: ""
-          - name: cc_sq_ft
-            data_type: number
-            description: ""
-          - name: cc_hours
-            data_type: varchar
-            description: ""
-          - name: cc_manager
-            data_type: varchar
-            description: ""
-          - name: cc_mkt_id
-            data_type: number
-            description: ""
-          - name: cc_mkt_class
-            data_type: varchar
-            description: ""
-          - name: cc_mkt_desc
-            data_type: varchar
-            description: ""
-          - name: cc_market_manager
-            data_type: varchar
-            description: ""
           - name: cc_division
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CC_DIVISION.
+          - name: cc_street_number
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_STREET_NUMBER.
+          - name: cc_open_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cc_state
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_STATE.
+          - name: cc_employees
+            data_type: number
+            description: | 
+              Descriptive attribute for CC_EMPLOYEES.
+          - name: cc_country
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_COUNTRY.
           - name: cc_division_name
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_DIVISION_NAME.
+          - name: cc_street_type
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_STREET_TYPE.
+          - name: cc_market_manager
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_MARKET_MANAGER.
+          - name: cc_mkt_class
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_MKT_CLASS.
+          - name: cc_call_center_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cc_county
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_COUNTY.
+          - name: cc_name
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_NAME.
+          - name: cc_zip
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_ZIP.
           - name: cc_company
             data_type: number
-            description: ""
-          - name: cc_company_name
-            data_type: varchar
-            description: ""
-          - name: cc_street_number
-            data_type: varchar
-            description: ""
-          - name: cc_street_name
-            data_type: varchar
-            description: ""
-          - name: cc_street_type
-            data_type: varchar
-            description: ""
-          - name: cc_suite_number
-            data_type: varchar
-            description: ""
-          - name: cc_city
-            data_type: varchar
-            description: ""
-          - name: cc_county
-            data_type: varchar
-            description: ""
-          - name: cc_state
-            data_type: varchar
-            description: ""
-          - name: cc_zip
-            data_type: varchar
-            description: ""
-          - name: cc_country
-            data_type: varchar
-            description: ""
-          - name: cc_gmt_offset
-            data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CC_COMPANY.
           - name: cc_tax_percentage
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CC_TAX_PERCENTAGE.
+          - name: cc_mkt_desc
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_MKT_DESC.
+          - name: cc_street_name
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_STREET_NAME.
+          - name: cc_call_center_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: cc_class
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_CLASS.
+          - name: cc_city
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_CITY.
+          - name: cc_closed_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cc_suite_number
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_SUITE_NUMBER.
+          - name: cc_gmt_offset
+            data_type: number
+            description: | 
+              Descriptive attribute for CC_GMT_OFFSET.
+          - name: cc_sq_ft
+            data_type: number
+            description: | 
+              Descriptive attribute for CC_SQ_FT.
+          - name: cc_manager
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_MANAGER.
+          - name: cc_mkt_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
+          - name: cc_company_name
+            data_type: text
+            description: | 
+             Descriptive attribute for CC_COMPANY_NAME.
+          - name: cc_rec_start_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: cc_hours
+            data_type: text
+            description: | 
+              Descriptive attribute for CC_HOURS.
+          - name: cc_rec_end_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
 
       - name: catalog_page
-        description: ""
+        description: |
+          Dimension table with specific catalog page appeals for marketing tracking
         columns:
-          - name: cp_catalog_page_sk
-            data_type: number
-            description: ""
+          - name: cp_department
+            data_type: text
+            description: | 
+              Desc riptive attribute for CP_DEPARTMENT.
           - name: cp_catalog_page_id
-            data_type: varchar
-            description: ""
-          - name: cp_start_date_sk
-            data_type: number
-            description: ""
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
           - name: cp_end_date_sk
             data_type: number
-            description: ""
-          - name: cp_department
-            data_type: varchar
-            description: ""
-          - name: cp_catalog_number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cp_catalog_page_sk
             data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cp_type
+            data_type: text
+            description: | 
+              Descriptive attribute for CP_TYPE.
           - name: cp_catalog_page_number
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CP_CATALOG_PAGE_NUMBER.
+          - name: cp_start_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: cp_description
-            data_type: varchar
-            description: ""
-          - name: cp_type
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for CP_DESCRIPTION.
+          - name: cp_catalog_number
+            data_type: number
+            description: | 
+              Descriptive attribute for CP_CATALOG_NUMBER.
 
       - name: catalog_returns
-        description: ""
+        description: |
+          Fact table of returns associated with a Catalog Sale 
         columns:
           - name: cr_returned_date_sk
             data_type: number
             description: ""
-          - name: cr_returned_time_sk
-            data_type: number
-            description: ""
-          - name: cr_item_sk
-            data_type: number
-            description: ""
-          - name: cr_refunded_customer_sk
-            data_type: number
-            description: ""
-          - name: cr_refunded_cdemo_sk
-            data_type: number
-            description: ""
-          - name: cr_refunded_hdemo_sk
-            data_type: number
-            description: ""
-          - name: cr_refunded_addr_sk
-            data_type: number
-            description: ""
-          - name: cr_returning_customer_sk
-            data_type: number
-            description: ""
-          - name: cr_returning_cdemo_sk
-            data_type: number
-            description: ""
-          - name: cr_returning_hdemo_sk
-            data_type: number
-            description: ""
-          - name: cr_returning_addr_sk
-            data_type: number
-            description: ""
-          - name: cr_call_center_sk
-            data_type: number
-            description: ""
-          - name: cr_catalog_page_sk
-            data_type: number
-            description: ""
-          - name: cr_ship_mode_sk
-            data_type: number
-            description: ""
-          - name: cr_warehouse_sk
-            data_type: number
-            description: ""
-          - name: cr_reason_sk
-            data_type: number
-            description: ""
           - name: cr_order_number
             data_type: number
-            description: ""
-          - name: cr_return_quantity
+            description: | 
+              Descriptive attribute for CR_ORDER_NUMBER.
+          - name: cr_returned_time_sk
             data_type: number
-            description: ""
-          - name: cr_return_amount
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_ship_mode_sk
             data_type: number
-            description: ""
-          - name: cr_return_tax
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_returned_date_sk
             data_type: number
-            description: ""
-          - name: cr_return_amt_inc_tax
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_refunded_customer_sk
             data_type: number
-            description: ""
-          - name: cr_fee
-            data_type: number
-            description: ""
-          - name: cr_return_ship_cost
-            data_type: number
-            description: ""
-          - name: cr_refunded_cash
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key identifying the customer.
           - name: cr_reversed_charge
             data_type: number
-            description: ""
-          - name: cr_store_credit
+            description: | 
+              Descriptive attribute for CR_REVERSED_CHARGE.
+          - name: cr_item_sk
             data_type: number
-            description: ""
+            description: | 
+              Surrogate key identifying the item.
+          - name: cr_returning_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_return_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for CR_RETURN_TAX.
+          - name: cr_refunded_cash
+            data_type: number
+            description: | 
+              Descriptive attribute for CR_REFUNDED_CASH.
+          - name: cr_returning_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_fee
+            data_type: number
+            description: | 
+              Descriptive attribute for CR_FEE.
+          - name: cr_refunded_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_return_amount
+            data_type: number
+            description: | 
+              Descriptive attribute for CR_RETURN_AMOUNT.
           - name: cr_net_loss
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CR_NET_LOSS.
+          - name: cr_store_credit
+            data_type: number
+            description: | 
+              Descriptive attribute for CR_STORE_CREDIT.
+          - name: cr_warehouse_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the warehouse.
+          - name: cr_catalog_page_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_return_amt_inc_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for CR_RETURN_AMT_INC_TAX.
+          - name: cr_reason_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_refunded_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_returning_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_return_ship_cost
+            data_type: number
+            description: | 
+              Descriptive attribute for CR_RETURN_SHIP_COST.
+          - name: cr_returning_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: cr_refunded_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_call_center_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cr_return_quantity
+            data_type: number
+            description: | 
+              Number of units involved in the transaction.
 
       - name: catalog_sales
-        description: ""
+        description: |
+          Fact table of all sales that originated from a Catalog 
         columns:
-          - name: cs_sold_date_sk
-            data_type: number
-            description: ""
-          - name: cs_sold_time_sk
-            data_type: number
-            description: ""
-          - name: cs_ship_date_sk
-            data_type: number
-            description: ""
           - name: cs_bill_customer_sk
             data_type: number
-            description: ""
-          - name: cs_bill_cdemo_sk
-            data_type: number
-            description: ""
-          - name: cs_bill_hdemo_sk
-            data_type: number
-            description: ""
-          - name: cs_bill_addr_sk
-            data_type: number
-            description: ""
-          - name: cs_ship_customer_sk
-            data_type: number
-            description: ""
-          - name: cs_ship_cdemo_sk
-            data_type: number
-            description: ""
-          - name: cs_ship_hdemo_sk
-            data_type: number
-            description: ""
-          - name: cs_ship_addr_sk
-            data_type: number
-            description: ""
-          - name: cs_call_center_sk
-            data_type: number
-            description: ""
-          - name: cs_catalog_page_sk
-            data_type: number
-            description: ""
-          - name: cs_ship_mode_sk
-            data_type: number
-            description: ""
-          - name: cs_warehouse_sk
-            data_type: number
-            description: ""
-          - name: cs_item_sk
-            data_type: number
-            description: ""
-          - name: cs_promo_sk
-            data_type: number
-            description: ""
-          - name: cs_order_number
-            data_type: number
-            description: ""
-          - name: cs_quantity
-            data_type: number
-            description: ""
-          - name: cs_wholesale_cost
-            data_type: number
-            description: ""
-          - name: cs_list_price
-            data_type: number
-            description: ""
-          - name: cs_sales_price
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key identifying the customer.
           - name: cs_ext_discount_amt
             data_type: number
-            description: ""
-          - name: cs_ext_sales_price
+            description: | 
+              Total discount amount applied to the transaction.
+          - name: cs_warehouse_sk
             data_type: number
-            description: ""
-          - name: cs_ext_wholesale_cost
+            description: | 
+              Surrogate key identifying the warehouse.
+          - name: cs_promo_sk
             data_type: number
-            description: ""
-          - name: cs_ext_list_price
+            description: | 
+              Surrogate key identifying the promotion.
+          - name: cs_ship_addr_sk
             data_type: number
-            description: ""
-          - name: cs_ext_tax
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_sales_price
             data_type: number
-            description: ""
-          - name: cs_coupon_amt
+            description: | 
+              Actual sales price charged to the customer.
+          - name: cs_call_center_sk
             data_type: number
-            description: ""
-          - name: cs_ext_ship_cost
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_ship_hdemo_sk
             data_type: number
-            description: ""
-          - name: cs_net_paid
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_order_number
             data_type: number
-            description: ""
-          - name: cs_net_paid_inc_tax
+            description: | 
+              Descriptive attribute for CS_ORDER_NUMBER.
+          - name: cs_catalog_page_sk
             data_type: number
-            description: ""
-          - name: cs_net_paid_inc_ship
-            data_type: number
-            description: ""
-          - name: cs_net_paid_inc_ship_tax
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: cs_net_profit
             data_type: number
-            description: ""
+            description: | 
+              Net profit from the transaction.
+          - name: cs_ship_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_net_paid_inc_ship
+            data_type: number
+            description: | 
+              Descriptive attribute for CS_NET_PAID_INC_SHIP.
+          - name: cs_bill_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_ext_list_price
+            data_type: number
+            description: | 
+              List price of the item at the time of the transaction.
+          - name: cs_ext_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for CS_EXT_TAX.
+          - name: cs_ship_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_net_paid_inc_ship_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for CS_NET_PAID_INC_SHIP_TAX.
+          - name: cs_sold_time_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_ship_mode_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_item_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the item.
+          - name: cs_bill_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_ship_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: cs_net_paid_inc_tax
+            data_type: number
+            description: | 
+              Net amount paid by the customer including tax.
+          - name: cs_net_paid
+            data_type: number
+            description: | 
+              Net amount paid by the customer after discounts.
+          - name: cs_coupon_amt
+            data_type: number
+            description: | 
+              Monetary amount associated with this metric.
+          - name: cs_sold_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_ext_ship_cost
+            data_type: number
+            description: | 
+              Descriptive attribute for CS_EXT_SHIP_COST.
+          - name: cs_ext_wholesale_cost
+            data_type: number
+            description: | 
+              Wholesale cost of the item at the time of the transaction.
+          - name: cs_quantity
+            data_type: number
+            description: | 
+              Number of units involved in the transaction.
+          - name: cs_ext_sales_price
+            data_type: number
+            description: | 
+              Actual sales price charged to the customer.
+          - name: cs_wholesale_cost
+            data_type: number
+            description: | 
+              Wholesale cost of the item at the time of the transaction.
+          - name: cs_bill_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: cs_list_price
+            data_type: number
+            description: | 
+              List price of the item at the time of the transaction.
 
       - name: customer
-        description: ""
+        description: |
+          Dimension table with Customer contact information and details 
         columns:
-          - name: c_customer_sk
-            data_type: number
-            description: ""
+          - name: c_login
+            data_type: text
+            description: | 
+              Descriptive attribute for C_LOGIN.
+          - name: c_email_address
+            data_type: text
+            description: | 
+              Descriptive attribute for C_EMAIL_ADDRESS.
           - name: c_customer_id
-            data_type: varchar
-            description: ""
-          - name: c_current_cdemo_sk
-            data_type: number
-            description: ""
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
           - name: c_current_hdemo_sk
             data_type: number
-            description: ""
-          - name: c_current_addr_sk
-            data_type: number
-            description: ""
-          - name: c_first_shipto_date_sk
-            data_type: number
-            description: ""
-          - name: c_first_sales_date_sk
-            data_type: number
-            description: ""
-          - name: c_salutation
-            data_type: varchar
-            description: ""
-          - name: c_first_name
-            data_type: varchar
-            description: ""
-          - name: c_last_name
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: c_preferred_cust_flag
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for C_PREFERRED_CUST_FLAG.
           - name: c_birth_day
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for C_BIRTH_DAY.
           - name: c_birth_month
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for C_BIRTH_MONTH.
+          - name: c_first_sales_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: c_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
           - name: c_birth_year
             data_type: number
-            description: ""
-          - name: c_birth_country
-            data_type: varchar
-            description: ""
-          - name: c_login
-            data_type: varchar
-            description: ""
-          - name: c_email_address
-            data_type: varchar
-            description: ""
+            description: | 
+              Descriptive attribute for C_BIRTH_YEAR.
+          - name: c_current_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: c_last_name
+            data_type: text
+            description: | 
+              Descriptive attribute for C_LAST_NAME.
+          - name: c_first_shipto_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: c_last_review_date
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Calendar date associated with this event.
+          - name: c_first_name
+            data_type: text
+            description: | 
+              Descriptive attribute for C_FIRST_NAME.
+          - name: c_salutation
+            data_type: text
+            description: | 
+              Descriptive attribute for C_SALUTATION.
+          - name: c_birth_country
+            data_type: text
+            description: | 
+              Descriptive attribute for C_BIRTH_COUNTRY.
+          - name: c_current_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
 
       - name: customer_address
-        description: ""
+        description: |
+          Dimension table with Customer's Address information 
         columns:
+          - name: ca_address_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: ca_street_type
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_STREET_TYPE.
+          - name: ca_suite_number
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_SUITE_NUMBER.
           - name: ca_address_sk
             data_type: number
-            description: ""
-          - name: ca_address_id
-            data_type: varchar
-            description: ""
-          - name: ca_street_number
-            data_type: varchar
-            description: ""
-          - name: ca_street_name
-            data_type: varchar
-            description: ""
-          - name: ca_street_type
-            data_type: varchar
-            description: ""
-          - name: ca_suite_number
-            data_type: varchar
-            description: ""
-          - name: ca_city
-            data_type: varchar
-            description: ""
-          - name: ca_county
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: ca_state
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_STATE.
+          - name: ca_county
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_COUNTY.
           - name: ca_zip
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_ZIP.
           - name: ca_country
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_COUNTRY.
           - name: ca_gmt_offset
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CA_GMT_OFFSET.
           - name: ca_location_type
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_LOCATION_TYPE.
+          - name: ca_city
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_CITY.
+          - name: ca_street_name
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_STREET_NAME.
+          - name: ca_street_number
+            data_type: text
+            description: | 
+              Descriptive attribute for CA_STREET_NUMBER.
 
       - name: customer_demographics
-        description: ""
+        description: |
+          Dimension table with Customer Demographics data (age, gender, etc.)
         columns:
-          - name: cd_demo_sk
-            data_type: number
-            description: ""
-          - name: cd_gender
-            data_type: varchar
-            description: ""
-          - name: cd_marital_status
-            data_type: varchar
-            description: ""
-          - name: cd_education_status
-            data_type: varchar
-            description: ""
           - name: cd_purchase_estimate
             data_type: number
-            description: ""
-          - name: cd_credit_rating
-            data_type: varchar
-            description: ""
-          - name: cd_dep_count
-            data_type: number
-            description: ""
-          - name: cd_dep_employed_count
-            data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CD_PURCHASE_ESTIMATE.
+          - name: cd_gender
+            data_type: text
+            description: | 
+              Descriptive attribute for CD_GENDER.
           - name: cd_dep_college_count
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for CD_DEP_COLLEGE_COUNT.
+          - name: cd_education_status
+            data_type: text
+            description: | 
+              Descriptive attribute for CD_EDUCATION_STATUS.
+          - name: cd_credit_rating
+            data_type: text
+            description: | 
+              Descriptive attribute for CD_CREDIT_RATING.
+          - name: cd_dep_count
+            data_type: number
+            description: | 
+              Descriptive attribute for CD_DEP_COUNT.
+          - name: cd_marital_status
+            data_type: text
+            description: | 
+              Descriptive attribute for CD_MARITAL_STATUS.
+          - name: cd_dep_employed_count
+            data_type: number
+            description: | 
+              Descriptive attribute for CD_DEP_EMPLOYED_COUNT.
+          - name: cd_demo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
 
       - name: date_dim
-        description: ""
+        description: |
+          Dimension table for date series joins 
         columns:
-          - name: d_date_sk
-            data_type: number
-            description: ""
-          - name: d_date_id
-            data_type: varchar
-            description: ""
-          - name: d_date
-            data_type: date
-            description: ""
-          - name: d_month_seq
-            data_type: number
-            description: ""
-          - name: d_week_seq
-            data_type: number
-            description: ""
-          - name: d_quarter_seq
-            data_type: number
-            description: ""
-          - name: d_year
-            data_type: number
-            description: ""
-          - name: d_dow
-            data_type: number
-            description: ""
-          - name: d_moy
-            data_type: number
-            description: ""
-          - name: d_dom
-            data_type: number
-            description: ""
-          - name: d_qoy
-            data_type: number
-            description: ""
-          - name: d_fy_year
-            data_type: number
-            description: ""
-          - name: d_fy_quarter_seq
-            data_type: number
-            description: ""
-          - name: d_fy_week_seq
-            data_type: number
-            description: ""
-          - name: d_day_name
-            data_type: varchar
-            description: ""
-          - name: d_quarter_name
-            data_type: varchar
-            description: ""
-          - name: d_holiday
-            data_type: varchar
-            description: ""
-          - name: d_weekend
-            data_type: varchar
-            description: ""
-          - name: d_following_holiday
-            data_type: varchar
-            description: ""
-          - name: d_first_dom
-            data_type: number
-            description: ""
+          - name: d_current_day
+            data_type: text
+            description: | 
+              Descriptive attribute for D_CURRENT_DAY.
           - name: d_last_dom
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for D_LAST_DOM.
+          - name: d_fy_week_seq
+            data_type: number
+            description: | 
+              Descriptive attribute for D_FY_WEEK_SEQ.
+          - name: d_dow
+            data_type: number
+            description: | 
+              Descriptive attribute for D_DOW.
+          - name: d_moy
+            data_type: number
+            description: | 
+              Descriptive attribute for D_MOY.
+          - name: d_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: d_date_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: d_first_dom
+            data_type: number
+            description: | 
+              Descriptive attribute for D_FIRST_DOM.
+          - name: d_holiday
+            data_type: text
+            description: | 
+              Descriptive attribute for D_HOLIDAY.
+          - name: d_week_seq
+            data_type: number
+            description: | 
+              Descriptive attribute for D_WEEK_SEQ.
           - name: d_same_day_ly
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for D_SAME_DAY_LY.
+          - name: d_following_holiday
+            data_type: text
+            description: | 
+              Descriptive attribute for D_FOLLOWING_HOLIDAY.
+          - name: d_fy_quarter_seq
+            data_type: number
+            description: | 
+              Descriptive attribute for D_FY_QUARTER_SEQ.
+          - name: d_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: d_dom
+            data_type: number
+            description: | 
+              Descriptive attribute for D_DOM.
+          - name: d_year
+            data_type: number
+            description: | 
+              Descriptive attribute for D_YEAR.
+          - name: d_qoy
+            data_type: number
+            description: | 
+              Descriptive attribute for D_QOY.
+          - name: d_current_year
+            data_type: text
+            description: | 
+              Descriptive attribute for D_CURRENT_YEAR.
+          - name: d_current_quarter
+            data_type: text
+            description: | 
+              Descriptive attribute for D_CURRENT_QUARTER.
+          - name: d_day_name
+            data_type: text
+            description: | 
+              Descriptive attribute for D_DAY_NAME.
+          - name: d_month_seq
+            data_type: number
+            description: | 
+              Descriptive attribute for D_MONTH_SEQ.
+          - name: d_current_week
+            data_type: text
+            description: | 
+              Descriptive attribute for D_CURRENT_WEEK.
+          - name: d_quarter_seq
+            data_type: number
+            description: | 
+              Descriptive attribute for D_QUARTER_SEQ.
+          - name: d_quarter_name
+            data_type: text
+            description: | 
+              Descriptive attribute for D_QUARTER_NAME.
           - name: d_same_day_lq
             data_type: number
-            description: ""
-          - name: d_current_day
-            data_type: varchar
-            description: ""
-          - name: d_current_week
-            data_type: varchar
-            description: ""
+            description: | 
+              Descriptive attribute for D_SAME_DAY_LQ.
+          - name: d_weekend
+            data_type: text
+            description: | 
+              Descriptive attribute for D_WEEKEND.
           - name: d_current_month
-            data_type: varchar
-            description: ""
-          - name: d_current_quarter
-            data_type: varchar
-            description: ""
-          - name: d_current_year
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for D_CURRENT_MONTH.
+          - name: d_fy_year
+            data_type: number
+            description: | 
+              Descriptive attribute for D_FY_YEAR.
 
       - name: household_demographics
-        description: ""
+        description: |
+          Dimension table with Household Demographics of a Customer (income band, vehicle count, etc.)
         columns:
-          - name: hd_demo_sk
-            data_type: number
-            description: ""
-          - name: hd_income_band_sk
-            data_type: number
-            description: ""
-          - name: hd_buy_potential
-            data_type: varchar
-            description: ""
-          - name: hd_dep_count
-            data_type: number
-            description: ""
           - name: hd_vehicle_count
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for HD_VEHICLE_COUNT.
+          - name: hd_income_band_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: hd_dep_count
+            data_type: number
+            description: | 
+              Descriptive attribute for HD_DEP_COUNT.
+          - name: hd_demo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: hd_buy_potential
+            data_type: text
+            description: | 
+              Descriptive attribute for HD_BUY_POTENTIAL.
 
       - name: income_band
-        description: ""
+        description: |
+          Dimension table for income band joins across tables 
         columns:
-          - name: ib_income_band_sk
-            data_type: number
-            description: ""
           - name: ib_lower_bound
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for IB_LOWER_BOUND.
           - name: ib_upper_bound
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for IB_UPPER_BOUND.
+          - name: ib_income_band_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
 
       - name: inventory
-        description: ""
+        description: |
+          Dimension table of current Inventory for Items 
         columns:
-          - name: inv_date_sk
-            data_type: number
-            description: ""
-          - name: inv_item_sk
-            data_type: number
-            description: ""
           - name: inv_warehouse_sk
             data_type: number
-            description: ""
+            description: | 
+              Surrogate key identifying the warehouse.
           - name: inv_quantity_on_hand
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for INV_QUANTITY_ON_HAND.
+          - name: inv_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: inv_item_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the item.
 
       - name: item
-        description: ""
+        description: |
+          Dimension table of details around Item purchased
         columns:
+          - name: i_formulation
+            data_type: text
+            description: | 
+              Descriptive attribute for I_FORMULATION.
+          - name: i_class
+            data_type: text
+            description: | 
+              Descriptive attribute for I_CLASS.
+          - name: i_units
+            data_type: text
+            description: | 
+              Descriptive attribute for I_UNITS.
+          - name: i_brand
+            data_type: text
+            description: | 
+              Descriptive attribute for I_BRAND.
+          - name: i_container
+            data_type: text
+            description: | 
+              Descriptive attribute for I_CONTAINER.
           - name: i_item_sk
             data_type: number
-            description: ""
-          - name: i_item_id
-            data_type: varchar
-            description: ""
-          - name: i_rec_start_date
-            data_type: date
-            description: ""
-          - name: i_rec_end_date
-            data_type: date
-            description: ""
-          - name: i_item_desc
-            data_type: varchar
-            description: ""
-          - name: i_current_price
-            data_type: number
-            description: ""
-          - name: i_wholesale_cost
-            data_type: number
-            description: ""
-          - name: i_brand_id
-            data_type: number
-            description: ""
-          - name: i_brand
-            data_type: varchar
-            description: ""
-          - name: i_class_id
-            data_type: number
-            description: ""
-          - name: i_class
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key identifying the item.
           - name: i_category_id
             data_type: number
-            description: ""
-          - name: i_category
-            data_type: varchar
-            description: ""
-          - name: i_manufact_id
-            data_type: number
-            description: ""
-          - name: i_manufact
-            data_type: varchar
-            description: ""
-          - name: i_size
-            data_type: varchar
-            description: ""
-          - name: i_formulation
-            data_type: varchar
-            description: ""
+            description: | 
+              Business identifier for the associated entity.
+          - name: i_product_name
+            data_type: text
+            description: | 
+              Descriptive attribute for I_PRODUCT_NAME.
           - name: i_color
-            data_type: varchar
-            description: ""
-          - name: i_units
-            data_type: varchar
-            description: ""
-          - name: i_container
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for I_COLOR.
           - name: i_manager_id
             data_type: number
-            description: ""
-          - name: i_product_name
-            data_type: varchar
-            description: ""
+            description: | 
+              Business identifier for the associated entity.
+          - name: i_size
+            data_type: text
+            description: | 
+              Descriptive attribute for I_SIZE.
+          - name: i_category
+            data_type: text
+            description: | 
+              Descriptive attribute for I_CATEGORY.
+          - name: i_current_price
+            data_type: number
+            description: | 
+              Descriptive attribute for I_CURRENT_PRICE.
+          - name: i_rec_start_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: i_item_desc
+            data_type: text
+            description: | 
+              Descriptive attribute for I_ITEM_DESC.
+          - name: i_manufact
+            data_type: text
+            description: | 
+              Descriptive attribute for I_MANUFACT.
+          - name: i_brand_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
+          - name: i_class_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
+          - name: i_wholesale_cost
+            data_type: number
+            description: | 
+              Wholesale cost of the item at the time of the transaction.
+          - name: i_rec_end_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: i_item_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: i_manufact_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
 
       - name: promotion
-        description: ""
+        description: |
+          Dimension table with details around Promotions used during Sales 
         columns:
           - name: p_promo_sk
             data_type: number
-            description: ""
-          - name: p_promo_id
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key identifying the promotion.
+          - name: p_purpose
+            data_type: text
+            description: | 
+              Descriptive attribute for P_PURPOSE.
+          - name: p_channel_event
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_EVENT.
           - name: p_start_date_sk
             data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: p_channel_email
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_EMAIL.
+          - name: p_channel_catalog
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_CATALOG.
+          - name: p_channel_dmail
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_DMAIL.
+          - name: p_channel_press
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_PRESS.
           - name: p_end_date_sk
             data_type: number
-            description: ""
-          - name: p_item_sk
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: p_discount_active
+            data_type: text
+            description: | 
+              Descriptive attribute for P_DISCOUNT_ACTIVE.
+          - name: p_channel_details
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_DETAILS.
           - name: p_cost
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for P_COST.
+          - name: p_channel_radio
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_RADIO.
+          - name: p_promo_name
+            data_type: text
+            description: | 
+              Descriptive attribute for P_PROMO_NAME.
+          - name: p_channel_tv
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_TV.
+          - name: p_promo_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: p_channel_demo
+            data_type: text
+            description: | 
+              Descriptive attribute for P_CHANNEL_DEMO.
+          - name: p_item_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the item.
           - name: p_response_target
             data_type: number
-            description: ""
-          - name: p_promo_name
-            data_type: varchar
-            description: ""
-          - name: p_channel_dmail
-            data_type: varchar
-            description: ""
-          - name: p_channel_email
-            data_type: varchar
-            description: ""
-          - name: p_channel_catalog
-            data_type: varchar
-            description: ""
-          - name: p_channel_tv
-            data_type: varchar
-            description: ""
-          - name: p_channel_radio
-            data_type: varchar
-            description: ""
-          - name: p_channel_press
-            data_type: varchar
-            description: ""
-          - name: p_channel_event
-            data_type: varchar
-            description: ""
-          - name: p_channel_demo
-            data_type: varchar
-            description: ""
-          - name: p_channel_details
-            data_type: varchar
-            description: ""
-          - name: p_purpose
-            data_type: varchar
-            description: ""
-          - name: p_discount_active
-            data_type: varchar
-            description: ""
+            description: | 
+              Descriptive attribute for P_RESPONSE_TARGET.
 
       - name: reason
-        description: ""
+        description: |
+          Dimension table with Reason descriptions to join across data (Return, Cancellation, etc.)
         columns:
+          - name: r_reason_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
           - name: r_reason_sk
             data_type: number
-            description: ""
-          - name: r_reason_id
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: r_reason_desc
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for R_REASON_DESC.
 
       - name: ship_mode
-        description: ""
+        description: |
+          Dimension table with current Ship Mode of a Sale 
         columns:
+          - name: sm_contract
+            data_type: text
+            description: | 
+              Descriptive attribute for SM_CONTRACT.
           - name: sm_ship_mode_sk
             data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: sm_ship_mode_id
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
           - name: sm_type
-            data_type: varchar
-            description: ""
-          - name: sm_code
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for SM_TYPE.
           - name: sm_carrier
-            data_type: varchar
-            description: ""
-          - name: sm_contract
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for SM_CARRIER.
+          - name: sm_code
+            data_type: text
+            description: | 
+              Descriptive attribute for SM_CODE.
 
       - name: store
-        description: ""
+        description: |
+          Dimension table with details around Store locations 
         columns:
-          - name: s_store_sk
-            data_type: number
-            description: ""
-          - name: s_store_id
-            data_type: varchar
-            description: ""
-          - name: s_rec_start_date
-            data_type: date
-            description: ""
-          - name: s_rec_end_date
-            data_type: date
-            description: ""
-          - name: s_closed_date_sk
-            data_type: number
-            description: ""
-          - name: s_store_name
-            data_type: varchar
-            description: ""
-          - name: s_number_employees
-            data_type: number
-            description: ""
-          - name: s_floor_space
-            data_type: number
-            description: ""
-          - name: s_hours
-            data_type: varchar
-            description: ""
-          - name: s_manager
-            data_type: varchar
-            description: ""
-          - name: s_market_id
-            data_type: number
-            description: ""
-          - name: s_geography_class
-            data_type: varchar
-            description: ""
-          - name: s_market_desc
-            data_type: varchar
-            description: ""
-          - name: s_market_manager
-            data_type: varchar
-            description: ""
-          - name: s_division_id
-            data_type: number
-            description: ""
-          - name: s_division_name
-            data_type: varchar
-            description: ""
           - name: s_company_id
             data_type: number
-            description: ""
-          - name: s_company_name
-            data_type: varchar
-            description: ""
-          - name: s_street_number
-            data_type: varchar
-            description: ""
-          - name: s_street_name
-            data_type: varchar
-            description: ""
+            description: | 
+              Business identifier for the associated entity.
+          - name: s_market_desc
+            data_type: text
+            description: | 
+              Descriptive attribute for S_MARKET_DESC.
+          - name: s_manager
+            data_type: text
+            description: | 
+              Descriptive attribute for S_MANAGER.
           - name: s_street_type
-            data_type: varchar
-            description: ""
-          - name: s_suite_number
-            data_type: varchar
-            description: ""
-          - name: s_city
-            data_type: varchar
-            description: ""
-          - name: s_county
-            data_type: varchar
-            description: ""
-          - name: s_state
-            data_type: varchar
-            description: ""
-          - name: s_zip
-            data_type: varchar
-            description: ""
-          - name: s_country
-            data_type: varchar
-            description: ""
-          - name: s_gmt_offset
-            data_type: number
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for S_STREET_TYPE.
           - name: s_tax_precentage
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for S_TAX_PRECENTAGE.
+          - name: s_city
+            data_type: text
+            description: | 
+              Descriptive attribute for S_CITY.
+          - name: s_county
+            data_type: text
+            description: | 
+              Descriptive attribute for S_COUNTY.
+          - name: s_division_name
+            data_type: text
+            description: | 
+              Descriptive attribute for S_DIVISION_NAME.
+          - name: s_floor_space
+            data_type: number
+            description: | 
+              Descriptive attribute for S_FLOOR_SPACE.
+          - name: s_state
+            data_type: text
+            description: | 
+              Descriptive attribute for S_STATE.
+          - name: s_country
+            data_type: text
+            description: | 
+              Descriptive attribute for S_COUNTRY.
+          - name: s_company_name
+            data_type: text
+            description: | 
+              Descriptive attribute for S_COMPANY_NAME.
+          - name: s_street_name
+            data_type: text
+            description: | 
+              Descriptive attribute for S_STREET_NAME.
+          - name: s_gmt_offset
+            data_type: number
+            description: | 
+              Descriptive attribute for S_GMT_OFFSET.
+          - name: s_street_number
+            data_type: text
+            description: | 
+              Descriptive attribute for S_STREET_NUMBER.
+          - name: s_market_manager
+            data_type: text
+            description: | 
+              Descriptive attribute for S_MARKET_MANAGER.
+          - name: s_hours
+            data_type: text
+            description: | 
+              Descriptive attribute for S_HOURS.
+          - name: s_suite_number
+            data_type: text
+            description: | 
+              Descriptive attribute for S_SUITE_NUMBER.
+          - name: s_rec_start_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: s_division_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
+          - name: s_closed_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: s_rec_end_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: s_number_employees
+            data_type: number
+            description: | 
+              Descriptive attribute for S_NUMBER_EMPLOYEES.
+          - name: s_store_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the store.
+          - name: s_store_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: s_zip
+            data_type: text
+            description: | 
+              Descriptive attribute for S_ZIP.
+          - name: s_geography_class
+            data_type: text
+            description: | 
+              Descriptive attribute for S_GEOGRAPHY_CLASS.
+          - name: s_store_name
+            data_type: text
+            description: | 
+              Descriptive attribute for S_STORE_NAME.
+          - name: s_market_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
 
       - name: store_returns
-        description: ""
+        description: |
+          Fact table of Returns corresponding to Store Sales 
         columns:
-          - name: sr_returned_date_sk
-            data_type: number
-            description: ""
-          - name: sr_return_time_sk
-            data_type: number
-            description: ""
           - name: sr_item_sk
             data_type: number
-            description: ""
-          - name: sr_customer_sk
-            data_type: number
-            description: ""
-          - name: sr_cdemo_sk
-            data_type: number
-            description: ""
-          - name: sr_hdemo_sk
-            data_type: number
-            description: ""
-          - name: sr_addr_sk
-            data_type: number
-            description: ""
-          - name: sr_store_sk
-            data_type: number
-            description: ""
-          - name: sr_reason_sk
-            data_type: number
-            description: ""
-          - name: sr_ticket_number
-            data_type: number
-            description: ""
-          - name: sr_return_quantity
-            data_type: number
-            description: ""
-          - name: sr_return_amt
-            data_type: number
-            description: ""
-          - name: sr_return_tax
-            data_type: number
-            description: ""
-          - name: sr_return_amt_inc_tax
-            data_type: number
-            description: ""
-          - name: sr_fee
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key identifying the item.
           - name: sr_return_ship_cost
             data_type: number
-            description: ""
-          - name: sr_refunded_cash
-            data_type: number
-            description: ""
-          - name: sr_reversed_charge
-            data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for SR_RETURN_SHIP_COST.
           - name: sr_store_credit
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for SR_STORE_CREDIT.
+          - name: sr_refunded_cash
+            data_type: number
+            description: | 
+              Descriptive attribute for SR_REFUNDED_CASH.
+          - name: sr_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: sr_reason_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: sr_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: sr_return_amt
+            data_type: number
+            description: | 
+              Monetary amount associated with this metric.
+          - name: sr_return_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for SR_RETURN_TAX.
+          - name: sr_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: sr_store_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the store.
+          - name: sr_ticket_number
+            data_type: number
+            description: | 
+              Identifier for the sales transaction or receipt.
           - name: sr_net_loss
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for SR_NET_LOSS.
+          - name: sr_reversed_charge
+            data_type: number
+            description: | 
+              Descriptive attribute for SR_REVERSED_CHARGE.
+          - name: sr_fee
+            data_type: number
+            description: | 
+              Descriptive attribute for SR_FEE.
+          - name: sr_return_quantity
+            data_type: number
+            description: | 
+              Number of units involved in the transaction.
+          - name: sr_return_amt_inc_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for SR_RETURN_AMT_INC_TAX.
+          - name: sr_returned_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: sr_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: sr_return_time_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
 
       - name: store_sales
-        description: ""
+        description: |
+          Fact table of Sales originating from Stores 
         columns:
-          - name: ss_sold_date_sk
-            data_type: number
-            description: ""
-          - name: ss_sold_time_sk
-            data_type: number
-            description: ""
-          - name: ss_item_sk
-            data_type: number
-            description: ""
-          - name: ss_customer_sk
-            data_type: number
-            description: ""
-          - name: ss_cdemo_sk
-            data_type: number
-            description: ""
-          - name: ss_hdemo_sk
-            data_type: number
-            description: ""
-          - name: ss_addr_sk
-            data_type: number
-            description: ""
-          - name: ss_store_sk
-            data_type: number
-            description: ""
-          - name: ss_promo_sk
-            data_type: number
-            description: ""
-          - name: ss_ticket_number
-            data_type: number
-            description: ""
-          - name: ss_quantity
-            data_type: number
-            description: ""
-          - name: ss_wholesale_cost
-            data_type: number
-            description: ""
-          - name: ss_list_price
-            data_type: number
-            description: ""
-          - name: ss_sales_price
-            data_type: number
-            description: ""
-          - name: ss_ext_discount_amt
-            data_type: number
-            description: ""
-          - name: ss_ext_sales_price
-            data_type: number
-            description: ""
-          - name: ss_ext_wholesale_cost
-            data_type: number
-            description: ""
-          - name: ss_ext_list_price
-            data_type: number
-            description: ""
-          - name: ss_ext_tax
-            data_type: number
-            description: ""
-          - name: ss_coupon_amt
-            data_type: number
-            description: ""
           - name: ss_net_paid
             data_type: number
-            description: ""
-          - name: ss_net_paid_inc_tax
+            description: | 
+              Net amount paid by the customer after discounts.
+          - name: ss_wholesale_cost
             data_type: number
-            description: ""
+            description: | 
+              Wholesale cost of the item at the time of the transaction.
           - name: ss_net_profit
             data_type: number
-            description: ""
+            description: | 
+              Net profit from the transaction.
+          - name: ss_promo_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the promotion.
+          - name: ss_store_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the store.
+          - name: ss_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ss_list_price
+            data_type: number
+            description: | 
+              List price of the item at the time of the transaction.
+          - name: ss_item_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the item.
+          - name: ss_ext_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for SS_EXT_TAX.
+          - name: ss_sold_time_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ss_ext_wholesale_cost
+            data_type: number
+            description: | 
+              Wholesale cost of the item at the time of the transaction.
+          - name: ss_sold_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ss_net_paid_inc_tax
+            data_type: number
+            description: | 
+              Net amount paid by the customer including tax.
+          - name: ss_coupon_amt
+            data_type: number
+            description: | 
+              Monetary amount associated with this metric.
+          - name: ss_ticket_number
+            data_type: number
+            description: | 
+              Identifier for the sales transaction or receipt.
+          - name: ss_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ss_quantity
+            data_type: number
+            description: | 
+              Number of units involved in the transaction.
+          - name: ss_sales_price
+            data_type: number
+            description: | 
+              Actual sales price charged to the customer.
+          - name: ss_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: ss_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ss_ext_sales_price
+            data_type: number
+            description: | 
+              Actual sales price charged to the customer.
+          - name: ss_ext_list_price
+            data_type: number
+            description: | 
+              List price of the item at the time of the transaction.
+          - name: ss_ext_discount_amt
+            data_type: number
+            description: | 
+              Total discount amount applied to the transaction.
 
       - name: time_dim
-        description: ""
+        description: |
+          Dimension table with time series to join across data 
         columns:
-          - name: t_time_sk
-            data_type: number
-            description: ""
-          - name: t_time_id
-            data_type: varchar
-            description: ""
-          - name: t_time
-            data_type: number
-            description: ""
-          - name: t_hour
-            data_type: number
-            description: ""
-          - name: t_minute
-            data_type: number
-            description: ""
           - name: t_second
             data_type: number
-            description: ""
-          - name: t_am_pm
-            data_type: varchar
-            description: ""
-          - name: t_shift
-            data_type: varchar
-            description: ""
+            description: | 
+              Descriptive attribute for T_SECOND.
           - name: t_sub_shift
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for T_SUB_SHIFT.
           - name: t_meal_time
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Time of day associated with this event.
+          - name: t_time
+            data_type: number
+            description: | 
+              Time of day associated with this event.
+          - name: t_time_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: t_shift
+            data_type: text
+            description: | 
+              Descriptive attribute for T_SHIFT.
+          - name: t_minute
+            data_type: number
+            description: | 
+              Descriptive attribute for T_MINUTE.
+          - name: t_hour
+            data_type: number
+            description: | 
+              Descriptive attribute for T_HOUR.
+          - name: t_am_pm
+            data_type: text
+            description: | 
+              Descriptive attribute for T_AM_PM.
+          - name: t_time_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
 
       - name: warehouse
-        description: ""
+        description: |
+          Dimension table with inventory Warehouse details 
         columns:
+          - name: w_suite_number
+            data_type: text
+            description: | 
+              Descriptive attribute for W_SUITE_NUMBER.
+          - name: w_country
+            data_type: text
+            description: | 
+              Descriptive attribute for W_COUNTRY.
+          - name: w_zip
+            data_type: text
+            description: | 
+              Descriptive attribute for W_ZIP.
+          - name: w_city
+            data_type: text
+            description: | 
+              Descriptive attribute for W_CITY.
+          - name: w_county
+            data_type: text
+            description: | 
+              Descriptive attribute for W_COUNTY.
+          - name: w_warehouse_name
+            data_type: text
+            description: | 
+              Descriptive attribute for W_WAREHOUSE_NAME.
+          - name: w_state
+            data_type: text
+            description: | 
+              Descriptive attribute for W_STATE.
+          - name: w_street_number
+            data_type: text
+            description: | 
+              Descriptive attribute for W_STREET_NUMBER.
+          - name: w_warehouse_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: w_street_type
+            data_type: text
+            description: | 
+              Descriptive attribute for W_STREET_TYPE.
           - name: w_warehouse_sk
             data_type: number
-            description: ""
-          - name: w_warehouse_id
-            data_type: varchar
-            description: ""
-          - name: w_warehouse_name
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key identifying the warehouse.
+          - name: w_street_name
+            data_type: text
+            description: | 
+              Descriptive attribute for W_STREET_NAME.
           - name: w_warehouse_sq_ft
             data_type: number
-            description: ""
-          - name: w_street_number
-            data_type: varchar
-            description: ""
-          - name: w_street_name
-            data_type: varchar
-            description: ""
-          - name: w_street_type
-            data_type: varchar
-            description: ""
-          - name: w_suite_number
-            data_type: varchar
-            description: ""
-          - name: w_city
-            data_type: varchar
-            description: ""
-          - name: w_county
-            data_type: varchar
-            description: ""
-          - name: w_state
-            data_type: varchar
-            description: ""
-          - name: w_zip
-            data_type: varchar
-            description: ""
-          - name: w_country
-            data_type: varchar
-            description: ""
+            description: | 
+              Descriptive attribute for W_WAREHOUSE_SQ_FT.
           - name: w_gmt_offset
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for W_GMT_OFFSET.
 
       - name: web_page
-        description: ""
+        description: |
+          Dimension table with Page details of Web Purchases for marketing analysis 
         columns:
-          - name: wp_web_page_sk
-            data_type: number
-            description: ""
-          - name: wp_web_page_id
-            data_type: varchar
-            description: ""
           - name: wp_rec_start_date
             data_type: date
-            description: ""
-          - name: wp_rec_end_date
-            data_type: date
-            description: ""
-          - name: wp_creation_date_sk
-            data_type: number
-            description: ""
+            description: | 
+              Calendar date associated with this event.
           - name: wp_access_date_sk
             data_type: number
-            description: ""
-          - name: wp_autogen_flag
-            data_type: varchar
-            description: ""
-          - name: wp_customer_sk
-            data_type: number
-            description: ""
-          - name: wp_url
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: wp_type
-            data_type: varchar
-            description: ""
-          - name: wp_char_count
+            data_type: text
+            description: | 
+              Descriptive attribute for WP_TYPE.
+          - name: wp_url
+            data_type: text
+            description: | 
+              Descriptive attribute for WP_URL.
+          - name: wp_autogen_flag
+            data_type: text
+            description: | 
+              Descriptive attribute for WP_AUTOGEN_FLAG.
+          - name: wp_creation_date_sk
             data_type: number
-            description: ""
-          - name: wp_link_count
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: wp_image_count
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for WP_IMAGE_COUNT.
+          - name: wp_rec_end_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
           - name: wp_max_ad_count
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for WP_MAX_AD_COUNT.
+          - name: wp_char_count
+            data_type: number
+            description: | 
+              Descriptive attribute for WP_CHAR_COUNT.
+          - name: wp_web_page_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wp_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: wp_link_count
+            data_type: number
+            description: | 
+              Descriptive attribute for WP_LINK_COUNT.
+          - name: wp_web_page_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
 
       - name: web_returns
-        description: ""
+        description: |
+          Fact table with Returns associated with a Web Sale
         columns:
-          - name: wr_returned_date_sk
-            data_type: number
-            description: ""
-          - name: wr_returned_time_sk
-            data_type: number
-            description: ""
-          - name: wr_item_sk
-            data_type: number
-            description: ""
-          - name: wr_refunded_customer_sk
-            data_type: number
-            description: ""
-          - name: wr_refunded_cdemo_sk
-            data_type: number
-            description: ""
-          - name: wr_refunded_hdemo_sk
-            data_type: number
-            description: ""
-          - name: wr_refunded_addr_sk
-            data_type: number
-            description: ""
-          - name: wr_returning_customer_sk
-            data_type: number
-            description: ""
-          - name: wr_returning_cdemo_sk
-            data_type: number
-            description: ""
           - name: wr_returning_hdemo_sk
             data_type: number
-            description: ""
-          - name: wr_returning_addr_sk
-            data_type: number
-            description: ""
-          - name: wr_web_page_sk
-            data_type: number
-            description: ""
-          - name: wr_reason_sk
-            data_type: number
-            description: ""
-          - name: wr_order_number
-            data_type: number
-            description: ""
-          - name: wr_return_quantity
-            data_type: number
-            description: ""
-          - name: wr_return_amt
-            data_type: number
-            description: ""
-          - name: wr_return_tax
-            data_type: number
-            description: ""
-          - name: wr_return_amt_inc_tax
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: wr_fee
             data_type: number
-            description: ""
-          - name: wr_return_ship_cost
+            description: | 
+              Descriptive attribute for WR_FEE.
+          - name: wr_item_sk
             data_type: number
-            description: ""
-          - name: wr_refunded_cash
+            description: | 
+              Surrogate key identifying the item.
+          - name: wr_returning_customer_sk
             data_type: number
-            description: ""
-          - name: wr_reversed_charge
+            description: | 
+              Surrogate key identifying the customer.
+          - name: wr_returning_addr_sk
             data_type: number
-            description: ""
-          - name: wr_account_credit
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: wr_net_loss
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for WR_NET_LOSS.
+          - name: wr_account_credit
+            data_type: number
+            description: | 
+              Descriptive attribute for WR_ACCOUNT_CREDIT.
+          - name: wr_refunded_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_refunded_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: wr_refunded_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_return_amt_inc_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for WR_RETURN_AMT_INC_TAX.
+          - name: wr_returned_time_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_web_page_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_reason_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_return_tax
+            data_type: number
+            description: | 
+              Descriptive attribute for WR_RETURN_TAX.
+          - name: wr_returning_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_refunded_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_return_quantity
+            data_type: number
+            description: | 
+              Number of units involved in the transaction.
+          - name: wr_return_amt
+            data_type: number
+            description: | 
+              Monetary amount associated with this metric.
+          - name: wr_refunded_cash
+            data_type: number
+            description: | 
+              Descriptive attribute for WR_REFUNDED_CASH.
+          - name: wr_order_number
+            data_type: number
+            description: | 
+              Descriptive attribute for WR_ORDER_NUMBER.
+          - name: wr_reversed_charge
+            data_type: number
+            description: | 
+              Descriptive attribute for WR_REVERSED_CHARGE.
+          - name: wr_returned_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: wr_return_ship_cost
+            data_type: number
+            description: | 
+              Descriptive attribute for WR_RETURN_SHIP_COST.
 
       - name: web_sales
-        description: ""
+        description: |
+          Fact table of Sales originating from the Web 
         columns:
-          - name: ws_sold_date_sk
-            data_type: number
-            description: ""
-          - name: ws_sold_time_sk
-            data_type: number
-            description: ""
-          - name: ws_ship_date_sk
-            data_type: number
-            description: ""
-          - name: ws_item_sk
-            data_type: number
-            description: ""
-          - name: ws_bill_customer_sk
-            data_type: number
-            description: ""
-          - name: ws_bill_cdemo_sk
-            data_type: number
-            description: ""
-          - name: ws_bill_hdemo_sk
-            data_type: number
-            description: ""
-          - name: ws_bill_addr_sk
-            data_type: number
-            description: ""
-          - name: ws_ship_customer_sk
-            data_type: number
-            description: ""
-          - name: ws_ship_cdemo_sk
-            data_type: number
-            description: ""
-          - name: ws_ship_hdemo_sk
-            data_type: number
-            description: ""
-          - name: ws_ship_addr_sk
-            data_type: number
-            description: ""
           - name: ws_web_page_sk
             data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: ws_web_site_sk
             data_type: number
-            description: ""
-          - name: ws_ship_mode_sk
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_sold_time_sk
             data_type: number
-            description: ""
-          - name: ws_warehouse_sk
-            data_type: number
-            description: ""
-          - name: ws_promo_sk
-            data_type: number
-            description: ""
-          - name: ws_order_number
-            data_type: number
-            description: ""
-          - name: ws_quantity
-            data_type: number
-            description: ""
-          - name: ws_wholesale_cost
-            data_type: number
-            description: ""
-          - name: ws_list_price
-            data_type: number
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: ws_sales_price
             data_type: number
-            description: ""
-          - name: ws_ext_discount_amt
+            description: | 
+              Actual sales price charged to the customer.
+          - name: ws_promo_sk
             data_type: number
-            description: ""
-          - name: ws_ext_sales_price
+            description: | 
+              Surrogate key identifying the promotion.
+          - name: ws_quantity
             data_type: number
-            description: ""
-          - name: ws_ext_wholesale_cost
-            data_type: number
-            description: ""
-          - name: ws_ext_list_price
-            data_type: number
-            description: ""
+            description: | 
+              Number of units involved in the transaction.
           - name: ws_ext_tax
             data_type: number
-            description: ""
-          - name: ws_coupon_amt
-            data_type: number
-            description: ""
-          - name: ws_ext_ship_cost
-            data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for WS_EXT_TAX.
           - name: ws_net_paid
             data_type: number
-            description: ""
-          - name: ws_net_paid_inc_tax
+            description: | 
+              Net amount paid by the customer after discounts.
+          - name: ws_ext_wholesale_cost
             data_type: number
-            description: ""
-          - name: ws_net_paid_inc_ship
+            description: | 
+              Wholesale cost of the item at the time of the transaction.
+          - name: ws_list_price
             data_type: number
-            description: ""
+            description: | 
+              List price of the item at the time of the transaction.
+          - name: ws_bill_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_ship_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_ext_ship_cost
+            data_type: number
+            description: | 
+              Descriptive attribute for WS_EXT_SHIP_COST.
           - name: ws_net_paid_inc_ship_tax
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for WS_NET_PAID_INC_SHIP_TAX.
+          - name: ws_warehouse_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the warehouse.
+          - name: ws_ship_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_net_paid_inc_tax
+            data_type: number
+            description: | 
+              Net amount paid by the customer including tax.
+          - name: ws_ship_mode_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_net_paid_inc_ship
+            data_type: number
+            description: | 
+              Descriptive attribute for WS_NET_PAID_INC_SHIP.
+          - name: ws_bill_addr_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_item_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the item.
+          - name: ws_coupon_amt
+            data_type: number
+            description: | 
+              Monetary amount associated with this metric.
+          - name: ws_ext_sales_price
+            data_type: number
+            description: | 
+              Actual sales price charged to the customer.
           - name: ws_net_profit
             data_type: number
-            description: ""
+            description: | 
+              Net profit from the transaction.
+          - name: ws_ship_hdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_order_number
+            data_type: number
+            description: | 
+              Descriptive attribute for WS_ORDER_NUMBER.
+          - name: ws_ship_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: ws_ext_discount_amt
+            data_type: number
+            description: | 
+              Total discount amount applied to the transaction.
+          - name: ws_bill_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_bill_customer_sk
+            data_type: number
+            description: | 
+              Surrogate key identifying the customer.
+          - name: ws_wholesale_cost
+            data_type: number
+            description: | 
+              Wholesale cost of the item at the time of the transaction.
+          - name: ws_sold_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: ws_ext_list_price
+            data_type: number
+            description: | 
+              List price of the item at the time of the transaction.
+          - name: ws_ship_cdemo_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
 
       - name: web_site
-        description: ""
+        description: |
+          Dimension table of details of Website associated to Web Sales for marketing analysis 
         columns:
-          - name: web_site_sk
-            data_type: number
-            description: ""
-          - name: web_site_id
-            data_type: varchar
-            description: ""
-          - name: web_rec_start_date
-            data_type: date
-            description: ""
-          - name: web_rec_end_date
-            data_type: date
-            description: ""
-          - name: web_name
-            data_type: varchar
-            description: ""
-          - name: web_open_date_sk
-            data_type: number
-            description: ""
+          - name: web_suite_number
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_SUITE_NUMBER.
+          - name: web_class
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_CLASS.
+          - name: web_street_type
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_STREET_TYPE.
+          - name: web_zip
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_ZIP.
           - name: web_close_date_sk
             data_type: number
-            description: ""
-          - name: web_class
-            data_type: varchar
-            description: ""
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
           - name: web_manager
-            data_type: varchar
-            description: ""
-          - name: web_mkt_id
-            data_type: number
-            description: ""
-          - name: web_mkt_class
-            data_type: varchar
-            description: ""
-          - name: web_mkt_desc
-            data_type: varchar
-            description: ""
-          - name: web_market_manager
-            data_type: varchar
-            description: ""
-          - name: web_company_id
-            data_type: number
-            description: ""
-          - name: web_company_name
-            data_type: varchar
-            description: ""
-          - name: web_street_number
-            data_type: varchar
-            description: ""
-          - name: web_street_name
-            data_type: varchar
-            description: ""
-          - name: web_street_type
-            data_type: varchar
-            description: ""
-          - name: web_suite_number
-            data_type: varchar
-            description: ""
-          - name: web_city
-            data_type: varchar
-            description: ""
-          - name: web_county
-            data_type: varchar
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_MANAGER.
           - name: web_state
-            data_type: varchar
-            description: ""
-          - name: web_zip
-            data_type: varchar
-            description: ""
-          - name: web_country
-            data_type: varchar
-            description: ""
-          - name: web_gmt_offset
-            data_type: number
-            description: ""
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_STATE.
           - name: web_tax_percentage
             data_type: number
-            description: ""
+            description: | 
+              Descriptive attribute for WEB_TAX_PERCENTAGE.
+          - name: web_name
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_NAME.
+          - name: web_gmt_offset
+            data_type: number
+            description: | 
+              Descriptive attribute for WEB_GMT_OFFSET.
+          - name: web_mkt_desc
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_MKT_DESC.
+          - name: web_county
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_COUNTY.
+          - name: web_street_number
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_STREET_NUMBER.
+          - name: web_site_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: web_market_manager
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_MARKET_MANAGER.
+          - name: web_rec_start_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: web_rec_end_date
+            data_type: date
+            description: | 
+              Calendar date associated with this event.
+          - name: web_open_date_sk
+            data_type: number
+            description: | 
+              Surrogate key used to uniquely identify the associated dimension record.
+          - name: web_city
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_CITY.
+          - name: web_company_name
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_COMPANY_NAME.
+          - name: web_country
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_COUNTRY.
+          - name: web_site_id
+            data_type: text
+            description: | 
+              Business identifier for the associated entity.
+          - name: web_company_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
+          - name: web_mkt_id
+            data_type: number
+            description: | 
+              Business identifier for the associated entity.
+          - name: web_street_name
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_STREET_NAME.
+          - name: web_mkt_class
+            data_type: text
+            description: | 
+              Descriptive attribute for WEB_MKT_CLASS.
