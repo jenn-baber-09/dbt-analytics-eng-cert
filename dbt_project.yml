@@ -25,7 +25,15 @@ clean-targets:
 
 models:
   dbt_analytics_eng_cert:
-    
+    +database: |
+      {%- if target.name | lower | trim == 'development' -%}
+        DBT_ANALYTICS_ENG_CERT_DEV
+      {%- elif target.name | lower | trim  == 'staging' -%}
+        DBT_ANALYTICS_ENG_CERT_RC
+      {%- else -%}
+        DBT_ANALYTICS_ENG_CERT
+      {%- endif -%}
+      
     stg: 
       snowflake_sample_data:
         +materialized: view

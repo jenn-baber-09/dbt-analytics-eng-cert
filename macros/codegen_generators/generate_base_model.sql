@@ -4,8 +4,6 @@
   Purpose:
     Generates starter SQL for a base / staging model from a dbt source.
     Output is printed at compile time — copy/paste it into a model and refactor.
-  
-  💡 PRO TIP: if you need to generate a LOT of new models, check out `bulk_generate_base_model.sql` 😉
 
   How to use (dbt Cloud IDE):
     1. Ensure the source table exists in sources.yml
@@ -16,12 +14,6 @@
   Required args:
     - source_name     : dbt source name
     - table_name      : source table name
-
-  ❌ Ignore args (DO NOT USE):
-    ‼️👇 materializations are controlled in dbt_project.yml ONLY 👇‼️
-    - materialized         (table | view | incremental | etc.)
-    - leading_commas       (default=false) 👈 leading commas are against the styleguide 😏
-    - case_sensitive_cols  (default=false) 👈 lowercase output follows the styleguide 😏
 
   Example:
     {{ codegen.generate_base_model(
